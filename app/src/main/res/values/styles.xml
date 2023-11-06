@@ -1,0 +1,46 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/green_100</item>
+        <item name="colorPrimaryDark">@color/grey_500</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="FullscreenTheme" parent="AppTheme">
+        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
+        <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
+    </style>
+
+    <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
+    </style>
+
+    <style name="CustomVerifyTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!--buttons color-->
+        <item name="colorAccent">@android:color/white</item>
+        <!--title and message color-->
+        <item name="android:textColorPrimary">@android:color/holo_green_light</item>
+        <!--dialog background-->
+        <item name="android:windowBackground">@drawable/edittext_theme</item>
+    </style>
+
+
+    <style name="CustomAlertTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+
+        <!--title and message color-->
+        <item name="android:textColorPrimary">@android:color/holo_red_dark</item>
+        <!--dialog background-->
+        <item name="android:windowBackground">@color/green_200</item>
+    </style>
+
+    <style name="TextAppearance.App.TextInputLayout" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/grey_white_1000</item>
+    </style>
+
+
+</resources>

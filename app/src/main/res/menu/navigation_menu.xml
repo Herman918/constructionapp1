@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/addsite"
+        android:icon="@drawable/ic_add_circle_outline_indigo_300_24dp"
+        android:title="@string/addsite"/>
+    <item android:id="@+id/Engineers"
+        android:icon="@drawable/man_on_site"
+        android:title="@string/Engineers"/>
+    <item android:id="@+id/locate"
+        android:icon="@drawable/ic_location_on_cyan_a700_24dp"
+        android:title="@string/locate"/>
+    <item android:id="@+id/addMember"
+        android:icon="@drawable/ic_supervisor_account_black_24dp"
+        android:title="@string/addMember"/>
+
+</menu>
