@@ -1,4 +1,4 @@
-package com.example.constructionapp1;
+package com.example.constructionapp1.Presentation;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.constructionapp1.R;
 
 public class CustomSpinnerAdapter extends BaseAdapter {
     private Context context;

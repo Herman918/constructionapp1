@@ -1,12 +1,10 @@
-package com.example.constructionapp1.firstpageafterLogin;
+package com.example.constructionapp1.Presentation.FirstPageAfterLogin;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
@@ -15,13 +13,14 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.example.constructionapp1.AddSite;
-import com.example.constructionapp1.Add_Member;
-import com.example.constructionapp1.EngineerDeletePage;
+import com.example.constructionapp1.Presentation.SecondPageOfAdmin.Menu.AddSiteActivity;
+import com.example.constructionapp1.Presentation.SecondPageOfAdmin.Menu.AddMemberActivity;
+import com.example.constructionapp1.Presentation.SecondPageOfAdmin.Menu.EngineerDeletePageActivity;
 import com.example.constructionapp1.Pipeline_settings.city;
 import com.example.constructionapp1.R;
-import com.example.constructionapp1.secondpagepofadmin.SiteObject;
-import com.example.constructionapp1.secondpagepofadmin.correspondingAllSites;
+import com.example.constructionapp1.Domain.FirstPageAfterLogin.Card;
+import com.example.constructionapp1.Domain.SecondPageOfAdmin.SiteObject;
+import com.example.constructionapp1.Presentation.SecondPageOfAdmin.correspondingAllSitesActivity;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -88,7 +87,7 @@ public class AdminActivity extends AppCompatActivity {
 
 
 
-                            Intent intent = new Intent(AdminActivity.this, correspondingAllSites.class);
+                            Intent intent = new Intent(AdminActivity.this, correspondingAllSitesActivity.class);
                             intent.putExtra("showThisKindOfSites", watertank);
                             intent.putExtra("category", "Watertank");
                             startActivity(intent);
@@ -116,7 +115,7 @@ public class AdminActivity extends AppCompatActivity {
 
 
 
-                            Intent intent = new Intent(AdminActivity.this, correspondingAllSites.class);
+                            Intent intent = new Intent(AdminActivity.this, correspondingAllSitesActivity.class);
                             intent.putExtra("showThisKindOfSites", roadpavement);
                             intent.putExtra("category", "Roadpavement");
                             startActivity(intent);
@@ -144,7 +143,7 @@ public class AdminActivity extends AppCompatActivity {
                                         buildingconstru.add(new SiteObject(dsname.getKey(),dscity.getKey(),dsengi.getKey()));
 
 
-                            Intent intent = new Intent(AdminActivity.this, correspondingAllSites.class);
+                            Intent intent = new Intent(AdminActivity.this, correspondingAllSitesActivity.class);
                             intent.putExtra("showThisKindOfSites", buildingconstru);
                             intent.putExtra("category", "Buildingconstruction");
                             startActivity(intent);
@@ -181,7 +180,7 @@ public class AdminActivity extends AppCompatActivity {
                 int id = item.getItemId();
                 switch (id) {
                     case R.id.addsite:
-                        Intent intent0 = new Intent(AdminActivity.this, AddSite.class);
+                        Intent intent0 = new Intent(AdminActivity.this, AddSiteActivity.class);
                         intent0.putExtra("engineeradd", "-1");
                         startActivity(intent0);
                         // Close the drawer as soon as possible
@@ -200,7 +199,7 @@ public class AdminActivity extends AppCompatActivity {
                                     engineernames.add(ds.getKey());
 
                                 }
-                                     Intent intent = new Intent(AdminActivity.this, EngineerDeletePage.class);
+                                     Intent intent = new Intent(AdminActivity.this, EngineerDeletePageActivity.class);
                                      intent.putExtra("listofengineer", engineernames);
                                      startActivity(intent);
 
@@ -226,7 +225,7 @@ public class AdminActivity extends AppCompatActivity {
                         dl.closeDrawers();
                         break;
                     case R.id.addMember:
-                        startActivity(new Intent(AdminActivity.this, Add_Member.class));
+                        startActivity(new Intent(AdminActivity.this, AddMemberActivity.class));
 
                         break;
 

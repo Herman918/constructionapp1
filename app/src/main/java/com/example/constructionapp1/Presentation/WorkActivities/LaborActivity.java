@@ -1,8 +1,6 @@
-package com.example.constructionapp1;
+package com.example.constructionapp1.Presentation.WorkActivities;
 
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,20 +15,22 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.constructionapp1.Login.login;
-import com.example.constructionapp1.secondpagepofadmin.siteadapter;
+import com.example.constructionapp1.Presentation.FirstPageAfterLogin.engineerassignedCityActivity;
+import com.example.constructionapp1.Presentation.Login.LoginActivity;
+import com.example.constructionapp1.Presentation.SecondPageOfAdmin.siteadapter;
+import com.example.constructionapp1.Presentation.eachSiteInEngineerActivity;
+import com.example.constructionapp1.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class Labor extends AppCompatActivity {
+public class LaborActivity extends AppCompatActivity {
 
     Date currentDate = new Date();
     //    Date tomorrow = new Date(currentDate.getTime() + (1000 * 60 * 60 * 24));
@@ -61,8 +61,8 @@ public class Labor extends AppCompatActivity {
             sndbtn.setVisibility(View.VISIBLE);
 
             //Supervisor will see what he has sent as today's
-            //Labor count
-            tableuser.child("People").child(login.usname).child(engineerassignedCity.selectedcity).child(eachSiteInEngineer.selectedsite).addValueEventListener(new ValueEventListener() {
+            //LaborActivity count
+            tableuser.child("People").child(LoginActivity.usname).child(engineerassignedCityActivity.selectedcity).child(eachSiteInEngineerActivity.selectedsite).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     try {
@@ -70,7 +70,7 @@ public class Labor extends AppCompatActivity {
                         String showtxtviewlbr =dataSnapshot.child(dateLong).getKey() + "   " + today_labor_count;
                         date_with_count.setText(showtxtviewlbr);
                         // I will do something like remove listener .It is must
-                        // tableuser.child("People").child(login.usname).removeEventListener();
+                        // tableuser.child("People").child(LoginActivity.usname).removeEventListener();
 
                     } catch (NullPointerException e) {
                     }
@@ -90,7 +90,7 @@ public class Labor extends AppCompatActivity {
                     if(temp.length()==0)
                     {
                         if (manpower.getText().toString().length() == 0) {
-                            Animation shake = AnimationUtils.loadAnimation(Labor.this, R.anim.shake);
+                            Animation shake = AnimationUtils.loadAnimation(LaborActivity.this, R.anim.shake);
                             manpower.startAnimation(shake);
                         }
                         else
@@ -128,7 +128,7 @@ public class Labor extends AppCompatActivity {
                         manpower.setText(today_labor_count);
 
                     } catch (NullPointerException e) {
-                        Toast.makeText(Labor.this,"Engineer has not updated count yet " +"\ud83d\ude14"+"\ud83d\ude14", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LaborActivity.this,"Engineer has not updated count yet " +"\ud83d\ude14"+"\ud83d\ude14", Toast.LENGTH_SHORT).show();
 
                     } finally {
                         manpower.setEnabled(false);
@@ -154,11 +154,11 @@ public class Labor extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                if(null==dataSnapshot.child("People").child(login.usname).child(engineerassignedCity.selectedcity).child(eachSiteInEngineer.selectedsite).child(dateLong).child("LaborCount").getValue()) {
+                if(null==dataSnapshot.child("People").child(LoginActivity.usname).child(engineerassignedCityActivity.selectedcity).child(eachSiteInEngineerActivity.selectedsite).child(dateLong).child("LaborCount").getValue()) {
                     EditText edit_text =  findViewById(R.id.manpowerused);
-                    tableuser.child("People").child(login.usname).child(engineerassignedCity.selectedcity).child(eachSiteInEngineer.selectedsite).child(dateLong).child("LaborCount").setValue(edit_text.getText().toString());
+                    tableuser.child("People").child(LoginActivity.usname).child(engineerassignedCityActivity.selectedcity).child(eachSiteInEngineerActivity.selectedsite).child(dateLong).child("LaborCount").setValue(edit_text.getText().toString());
 
-                    Toast.makeText(Labor.this, "Sent Labor count Successfully" +("\ud83d\udc4d") + ("\ud83d\udc4d"), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LaborActivity.this, "Sent LaborActivity count Successfully" +("\ud83d\udc4d") + ("\ud83d\udc4d"), Toast.LENGTH_SHORT).show();
 
 
                 }

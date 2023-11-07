@@ -1,4 +1,4 @@
-package com.example.constructionapp1.secondpagepofadmin;
+package com.example.constructionapp1.Presentation.SecondPageOfAdmin;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.example.constructionapp1.Domain.SecondPageOfAdmin.SiteObject;
 import com.example.constructionapp1.R;
 import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
 import com.nightonke.boommenu.BoomButtons.TextOutsideCircleButton;
@@ -159,9 +160,9 @@ public class siteadapter extends ArrayAdapter<SiteObject> {
         imageresourceid.add(R.drawable.report);
         imageresourceid.add(R.drawable.ic_store);
         stringresourceid.add("Manpower Used Today");
-        stringresourceid.add("Equipment Info");
+        stringresourceid.add("EquipmentActivity Info");
         stringresourceid.add("Task To Engineer");
-        stringresourceid.add("Requirement From Engineer");
+        stringresourceid.add("RequirementActivity From Engineer");
         stringresourceid.add("Today's Report");
         stringresourceid.add("Material Used");
     }

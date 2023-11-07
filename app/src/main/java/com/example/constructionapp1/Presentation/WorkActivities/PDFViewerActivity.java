@@ -1,10 +1,11 @@
-package com.example.constructionapp1;
+package com.example.constructionapp1.Presentation.WorkActivities;
 
 import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.constructionapp1.R;
 import com.github.barteksc.pdfviewer.PDFView;
 import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle;
 

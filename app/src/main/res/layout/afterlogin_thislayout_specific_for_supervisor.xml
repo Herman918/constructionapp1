@@ -10,6 +10,6 @@
     android:alignmentMode="alignMargins"
     android:padding="14dp"
     android:background="@drawable/supervisorbackgroundcopy"
-    tools:context="com.example.constructionapp1.firstpageafterLogin.AdminActivity">
+    tools:context="com.example.constructionapp1.Presentation.FirstPageAfterLogin.AdminActivity">
 
 </GridView>

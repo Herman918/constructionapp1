@@ -21,7 +21,7 @@
 
 
 
-        <activity android:name=".Login.login"
+        <activity android:name=".Presentation.Login.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,30 +30,30 @@
         </activity>
 
         <activity
-            android:name=".firstpageafterLogin.AdminActivity">
+            android:name=".Presentation.FirstPageAfterLogin.AdminActivity">
         </activity>
 
         <activity
-            android:name=".firstpageafterLogin.SupervisorActivity"
+            android:name=".Presentation.FirstPageAfterLogin.SupervisorActivity"
             android:exported="true"/>
 
         <activity
-            android:name=".secondpagepofadmin.correspondingAllSites"
+            android:name=".Presentation.SecondPageOfAdmin.correspondingAllSitesActivity"
             android:launchMode="singleTask"
-            android:parentActivityName=".firstpageafterLogin.AdminActivity">
+            android:parentActivityName=".Presentation.FirstPageAfterLogin.AdminActivity">
         </activity>
 
         <activity
-            android:name=".AddSite"
-            android:parentActivityName=".firstpageafterLogin.AdminActivity"/>
+            android:name=".Presentation.SecondPageOfAdmin.Menu.AddSiteActivity"
+            android:parentActivityName=".Presentation.FirstPageAfterLogin.AdminActivity"/>
 
         <activity
-            android:name=".Add_Member"
+            android:name=".Presentation.SecondPageOfAdmin.Menu.AddMemberActivity"
             android:label="@string/addMember"
-            android:parentActivityName=".firstpageafterLogin.AdminActivity" />
+            android:parentActivityName=".Presentation.FirstPageAfterLogin.AdminActivity" />
 
         <activity
-            android:name="PDFViewerActivity"
+            android:name=".Presentation.WorkActivities.PDFViewerActivity"
             android:parentActivityName=".sitereport" />
 
         <provider
@@ -67,27 +67,27 @@
         </provider>
 
         <activity
-            android:name=".EngineerDeletePage"
+            android:name=".Presentation.SecondPageOfAdmin.Menu.EngineerDeletePageActivity"
             android:label="@string/engineer"
             android:launchMode="singleTask"
-            android:parentActivityName=".firstpageafterLogin.AdminActivity" />
+            android:parentActivityName=".Presentation.FirstPageAfterLogin.AdminActivity" />
 
-        <activity android:name=".engineerassignedCity"
+        <activity android:name=".Presentation.FirstPageAfterLogin.engineerassignedCityActivity"
             android:exported="true"/>
-        <activity android:name=".eachSiteInEngineer" />
+        <activity android:name=".Presentation.eachSiteInEngineerActivity" />
 
-        <activity android:name=".Labor" />
+        <activity android:name=".Presentation.WorkActivities.LaborActivity" />
 
         <activity
             android:name=".sitereport"
             android:configChanges="keyboard|orientation|screenSize" />
 
-        <activity android:name=".Equipment"
+        <activity android:name=".Presentation.WorkActivities.EquipmentActivity"
             android:label="Equipment Info"/>
 
-        <activity android:name=".ToDoList" />
+        <activity android:name=".Presentation.WorkActivities.ToDoListActivity" />
 
-        <activity android:name=".Requirement" />
+        <activity android:name=".Presentation.WorkActivities.RequirementActivity" />
 
 
 

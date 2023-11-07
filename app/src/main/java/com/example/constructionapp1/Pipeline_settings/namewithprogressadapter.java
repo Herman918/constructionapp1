@@ -15,7 +15,7 @@ import android.widget.TextView;
 import androidx.core.content.ContextCompat;
 
 import com.example.constructionapp1.R;
-import com.example.constructionapp1.secondpagepofadmin.correspondingAllSites;
+import com.example.constructionapp1.Presentation.SecondPageOfAdmin.correspondingAllSitesActivity;
 
 import java.util.ArrayList;
 
@@ -159,7 +159,7 @@ public class namewithprogressadapter extends ArrayAdapter<namewithprogress.info>
         nameofsite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), correspondingAllSites.class);
+                Intent intent = new Intent(getContext(), correspondingAllSitesActivity.class);
                 intent.putExtra("showThisKindOfSites", obj.pipeline);
                 intent.putExtra("category", "Pipeline");
                 ContextCompat.startActivity(getContext(),intent, Bundle.EMPTY);

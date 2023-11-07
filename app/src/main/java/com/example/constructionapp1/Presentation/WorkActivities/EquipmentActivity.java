@@ -1,4 +1,4 @@
-package com.example.constructionapp1;
+package com.example.constructionapp1.Presentation.WorkActivities;
 
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -17,8 +17,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.constructionapp1.Login.login;
-import com.example.constructionapp1.secondpagepofadmin.siteadapter;
+import com.example.constructionapp1.Presentation.FirstPageAfterLogin.engineerassignedCityActivity;
+import com.example.constructionapp1.Presentation.Login.LoginActivity;
+import com.example.constructionapp1.Presentation.SecondPageOfAdmin.siteadapter;
+import com.example.constructionapp1.Presentation.eachSiteInEngineerActivity;
+import com.example.constructionapp1.R;
+import com.example.constructionapp1.Domain.WorkActivities.equipmentInfo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,13 +30,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
-public class Equipment extends AppCompatActivity {
+public class EquipmentActivity extends AppCompatActivity {
     Date currentDate = new Date();
     //    Date tomorrow = new Date(currentDate.getTime() + (1000 * 60 * 60 * 24));
 //    String dateLong = DateFormat.getDateInstance(DateFormat.MEDIUM).format(tomorrow);
@@ -116,7 +119,7 @@ public class Equipment extends AppCompatActivity {
 
                     }
                     else {
-                        Toast.makeText(Equipment.this,"Engineer has not updated reading yet " +"\ud83d\ude14"+"\ud83d\ude14", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EquipmentActivity.this,"Engineer has not updated reading yet " +"\ud83d\ude14"+"\ud83d\ude14", Toast.LENGTH_SHORT).show();
 
                     }
 
@@ -149,14 +152,14 @@ public class Equipment extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                if (!dataSnapshot.child("People").child(login.usname).child(engineerassignedCity.selectedcity).child(eachSiteInEngineer.selectedsite).child(dateLong).hasChild("EquipmentInfo")) {
+                if (!dataSnapshot.child("People").child(LoginActivity.usname).child(engineerassignedCityActivity.selectedcity).child(eachSiteInEngineerActivity.selectedsite).child(dateLong).hasChild("EquipmentInfo")) {
 
                     for (int k = 0; k < eInfo.size(); k++) {
 
-                        tableuser.child("People").child(login.usname).child(engineerassignedCity.selectedcity).child(eachSiteInEngineer.selectedsite).child(dateLong).child("EquipmentInfo").child(k + 1 + "").setValue(eInfo.get(k));
+                        tableuser.child("People").child(LoginActivity.usname).child(engineerassignedCityActivity.selectedcity).child(eachSiteInEngineerActivity.selectedsite).child(dateLong).child("EquipmentInfo").child(k + 1 + "").setValue(eInfo.get(k));
 
                     }
-                    Toast.makeText(Equipment.this, "Sent equipment data", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EquipmentActivity.this, "Sent equipment data", Toast.LENGTH_SHORT).show();
 
                 }
 

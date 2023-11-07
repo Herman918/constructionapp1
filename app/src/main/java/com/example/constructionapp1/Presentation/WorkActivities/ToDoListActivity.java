@@ -1,7 +1,5 @@
-package com.example.constructionapp1;
+package com.example.constructionapp1.Presentation.WorkActivities;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,20 +11,22 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.constructionapp1.Login.login;
-import com.example.constructionapp1.secondpagepofadmin.siteadapter;
+import com.example.constructionapp1.Presentation.FirstPageAfterLogin.engineerassignedCityActivity;
+import com.example.constructionapp1.Presentation.Login.LoginActivity;
+import com.example.constructionapp1.Presentation.SecondPageOfAdmin.siteadapter;
+import com.example.constructionapp1.Presentation.eachSiteInEngineerActivity;
+import com.example.constructionapp1.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class ToDoList extends AppCompatActivity {
+public class ToDoListActivity extends AppCompatActivity {
 
 
     Date currentDate = new Date();
@@ -53,7 +53,7 @@ public class ToDoList extends AppCompatActivity {
         tosupervisor = getIntent().getStringExtra("todolist");
         if (tosupervisor.equals("3")) {
             // call is from SupervisorActivity
-            tableuser.child("People").child(login.usname).child(engineerassignedCity.selectedcity).child(eachSiteInEngineer.selectedsite).addListenerForSingleValueEvent(new ValueEventListener() {
+            tableuser.child("People").child(LoginActivity.usname).child(engineerassignedCityActivity.selectedcity).child(eachSiteInEngineerActivity.selectedsite).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     try {
@@ -62,7 +62,7 @@ public class ToDoList extends AppCompatActivity {
 
 
                     } catch (NullPointerException e) {
-                        Toast.makeText(ToDoList.this, "No specific task from Admin", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ToDoListActivity.this, "No specific task from Admin", Toast.LENGTH_SHORT).show();
                     }
 
 
@@ -124,11 +124,11 @@ public class ToDoList extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 if (null == dataSnapshot.child("People").child(tosupervisor).child(siteadapter.area).child(siteadapter.Nameofsite).child(dateLong).child("Today's Task").getValue()) {
-                    Toast.makeText(ToDoList.this, "Today's work submitted" + ("\ud83d\udc4d") + ("\ud83d\udc4d"), Toast.LENGTH_LONG).show();
+                    Toast.makeText(ToDoListActivity.this, "Today's work submitted" + ("\ud83d\udc4d") + ("\ud83d\udc4d"), Toast.LENGTH_LONG).show();
                 }
                 else
                 {
-                    Toast.makeText(ToDoList.this, "Today's work updated" + ("\ud83d\udc4d") + ("\ud83d\udc4d"), Toast.LENGTH_LONG).show();
+                    Toast.makeText(ToDoListActivity.this, "Today's work updated" + ("\ud83d\udc4d") + ("\ud83d\udc4d"), Toast.LENGTH_LONG).show();
 
                 }
 

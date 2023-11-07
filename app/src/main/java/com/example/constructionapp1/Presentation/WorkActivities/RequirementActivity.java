@@ -1,8 +1,6 @@
-package com.example.constructionapp1;
+package com.example.constructionapp1.Presentation.WorkActivities;
 
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -16,20 +14,22 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.constructionapp1.Login.login;
-import com.example.constructionapp1.secondpagepofadmin.siteadapter;
+import com.example.constructionapp1.Presentation.FirstPageAfterLogin.engineerassignedCityActivity;
+import com.example.constructionapp1.Presentation.Login.LoginActivity;
+import com.example.constructionapp1.Presentation.SecondPageOfAdmin.siteadapter;
+import com.example.constructionapp1.Presentation.eachSiteInEngineerActivity;
+import com.example.constructionapp1.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class Requirement extends AppCompatActivity {
+public class RequirementActivity extends AppCompatActivity {
 
     Date currentDate = new Date();
     //    Date tomorrow = new Date(currentDate.getTime() + (1000 * 60 * 60 * 24));
@@ -61,11 +61,11 @@ public class Requirement extends AppCompatActivity {
 
             // below code added because after sending requirement to admin
             // supervisor can see what are the things he has asked to admin do for that day.
-            tableuser.child("People").child(login.usname).child(engineerassignedCity.selectedcity).child(eachSiteInEngineer.selectedsite).addValueEventListener(new ValueEventListener() {
+            tableuser.child("People").child(LoginActivity.usname).child(engineerassignedCityActivity.selectedcity).child(eachSiteInEngineerActivity.selectedsite).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     try {
-                        String today_requirement = dataSnapshot.child(dateLong).child("Today's Requirement").getValue().toString();
+                        String today_requirement = dataSnapshot.child(dateLong).child("Today's RequirementActivity").getValue().toString();
                         txtview.setText(today_requirement);
 
 
@@ -110,12 +110,12 @@ public class Requirement extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     try {
-                        String today_requirement = dataSnapshot.child(dateLong).child("Today's Requirement").getValue().toString();
+                        String today_requirement = dataSnapshot.child(dateLong).child("Today's RequirementActivity").getValue().toString();
                         txtview.setText(today_requirement);
 
 
                     } catch (NullPointerException e) {
-                        Toast.makeText(Requirement.this, "No requirement from " + toadmin + " today", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RequirementActivity.this, "No requirement from " + toadmin + " today", Toast.LENGTH_SHORT).show();
                     }
 
 
@@ -138,9 +138,9 @@ public class Requirement extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                if (null == dataSnapshot.child("People").child(login.usname).child(engineerassignedCity.selectedcity).child(eachSiteInEngineer.selectedsite).child(dateLong).child("Today's Requirement").getValue()) {
-                    tableuser.child("People").child(login.usname).child(engineerassignedCity.selectedcity).child(eachSiteInEngineer.selectedsite).child(dateLong).child("Today's Requirement").setValue(edttxt.getText().toString());
-                    Toast.makeText(Requirement.this, "Please send these materials "+"\ud83d\ude4f"+"\ud83d\ude4f", Toast.LENGTH_SHORT).show();
+                if (null == dataSnapshot.child("People").child(LoginActivity.usname).child(engineerassignedCityActivity.selectedcity).child(eachSiteInEngineerActivity.selectedsite).child(dateLong).child("Today's RequirementActivity").getValue()) {
+                    tableuser.child("People").child(LoginActivity.usname).child(engineerassignedCityActivity.selectedcity).child(eachSiteInEngineerActivity.selectedsite).child(dateLong).child("Today's RequirementActivity").setValue(edttxt.getText().toString());
+                    Toast.makeText(RequirementActivity.this, "Please send these materials "+"\ud83d\ude4f"+"\ud83d\ude4f", Toast.LENGTH_SHORT).show();
 
                 }
 

@@ -1,9 +1,8 @@
-package com.example.constructionapp1.Login;
+package com.example.constructionapp1.Presentation.Login;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -15,8 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.constructionapp1.R;
-import com.example.constructionapp1.engineerassignedCity;
-import com.example.constructionapp1.firstpageafterLogin.AdminActivity;
+import com.example.constructionapp1.Presentation.FirstPageAfterLogin.engineerassignedCityActivity;
+import com.example.constructionapp1.Presentation.FirstPageAfterLogin.AdminActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,7 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 
-public class login extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     Button button;
     EditText username, password;
     static public String usname;
@@ -61,10 +60,10 @@ public class login extends AppCompatActivity {
 
         button.setOnClickListener(v -> {
             if (username.getText().toString().length() == 0) {
-                Animation shake = AnimationUtils.loadAnimation(login.this, R.anim.shake);
+                Animation shake = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.shake);
                 username.startAnimation(shake);
             } else if (password.getText().toString().length() == 0) {
-                Animation shake = AnimationUtils.loadAnimation(login.this, R.anim.shake);
+                Animation shake = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.shake);
                 password.startAnimation(shake);
             } else {
                 tableuser.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -75,14 +74,14 @@ public class login extends AppCompatActivity {
                             if (dataSnapshot.child("Admin").child(adminUsername).exists()) {
                                 String storedPassword = dataSnapshot.child("Admin").child(adminUsername).child("password").getValue(String.class);
                                 if (storedPassword.equals(password.getText().toString().trim())) {
-                                    Intent intent = new Intent(login.this, AdminActivity.class);
+                                    Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
                                     startActivity(intent);
                                     finish();
                                 } else {
-                                    Toast.makeText(login.this, "Wrong password", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(LoginActivity.this, "Wrong password", Toast.LENGTH_SHORT).show();
                                 }
                             } else {
-                                Toast.makeText(login.this, "You are not registered Admin", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "You are not registered Admin", Toast.LENGTH_SHORT).show();
                             }
                         }
 
@@ -93,14 +92,14 @@ public class login extends AppCompatActivity {
                             if (dataSnapshot.child("Engineer").child(engineerUsername).exists()) {
                                 String storedPassword = dataSnapshot.child("Engineer").child(engineerUsername).child("password").getValue(String.class);
                                 if (storedPassword.equals(password.getText().toString().trim())) {
-                                     Intent intent = new Intent(login.this, engineerassignedCity.class);
+                                     Intent intent = new Intent(LoginActivity.this, engineerassignedCityActivity.class);
                                      startActivity(intent);
                                     finish();
                                 } else {
-                                    Toast.makeText(login.this, "Wrong password", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(LoginActivity.this, "Wrong password", Toast.LENGTH_SHORT).show();
                                 }
                             } else {
-                                Toast.makeText(login.this, "You are not registered Engineer", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "You are not registered Engineer", Toast.LENGTH_SHORT).show();
                             }
                         }
                     }

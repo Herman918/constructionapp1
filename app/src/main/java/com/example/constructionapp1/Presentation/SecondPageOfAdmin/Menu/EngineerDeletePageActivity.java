@@ -1,4 +1,4 @@
-package com.example.constructionapp1;
+package com.example.constructionapp1.Presentation.SecondPageOfAdmin.Menu;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -18,12 +18,14 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.constructionapp1.Presentation.Engineer_delete_Adapter;
+import com.example.constructionapp1.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-public class EngineerDeletePage extends AppCompatActivity {
+public class EngineerDeletePageActivity extends AppCompatActivity {
     ArrayList<String> optionsList = new ArrayList<String>();
     PopupWindow popupWindowoption;
     View temp1;
@@ -102,7 +104,7 @@ public class EngineerDeletePage extends AppCompatActivity {
                 String id = itemArr[1];
 
                 // visual settings for the list item
-                TextView listItem = new TextView(EngineerDeletePage.this);
+                TextView listItem = new TextView(EngineerDeletePageActivity.this);
 
                 listItem.setText(text);
                 listItem.setTag(id);
@@ -124,7 +126,7 @@ public class EngineerDeletePage extends AppCompatActivity {
 
 //            // get the context and main activity to access variables
             Context mContext = v.getContext();
-            EngineerDeletePage mainActivity = ((EngineerDeletePage) mContext);
+            EngineerDeletePageActivity mainActivity = ((EngineerDeletePageActivity) mContext);
 
 //            // add some animation when a list item was clicked
 //            Animation fadeInAnimation = AnimationUtils.loadAnimation(v.getContext(), android.R.anim.fade_in);
@@ -143,7 +145,7 @@ public class EngineerDeletePage extends AppCompatActivity {
                     dialogBox();
                     break;
                 case "2":
-                    Intent intent0 = new Intent(EngineerDeletePage.this, AddSite.class);
+                    Intent intent0 = new Intent(EngineerDeletePageActivity.this, AddSiteActivity.class);
                     intent0.putExtra("engineeradd", engilist.get(position1));
                     startActivity(intent0);
                     break;

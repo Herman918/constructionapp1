@@ -1,10 +1,7 @@
 package com.example.constructionapp1;
 
-import android.Manifest;
 import android.app.ProgressDialog;
-import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -13,7 +10,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.PreferenceManager;
@@ -44,8 +40,13 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
-import com.example.constructionapp1.Login.login;
-import com.example.constructionapp1.secondpagepofadmin.siteadapter;
+import com.example.constructionapp1.Domain.WorkActivities.equipmentInfo;
+import com.example.constructionapp1.Presentation.CustomSpinnerAdapter;
+import com.example.constructionapp1.Presentation.FirstPageAfterLogin.engineerassignedCityActivity;
+import com.example.constructionapp1.Presentation.Login.LoginActivity;
+import com.example.constructionapp1.Presentation.WorkActivities.EquipmentActivity;
+import com.example.constructionapp1.Presentation.WorkActivities.PDFViewerActivity;
+import com.example.constructionapp1.Presentation.eachSiteInEngineerActivity;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -86,7 +87,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Type;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -99,7 +99,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
-import java.util.concurrent.CountDownLatch;
 
 public class sitereport extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -178,8 +177,8 @@ public class sitereport extends AppCompatActivity implements AdapterView.OnItemS
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                String LaborCountFromFirebase = dataSnapshot.child("People").child(login.usname)
-                        .child(engineerassignedCity.selectedcity).child(eachSiteInEngineer.selectedsite)
+                String LaborCountFromFirebase = dataSnapshot.child("People").child(LoginActivity.usname)
+                        .child(engineerassignedCityActivity.selectedcity).child(eachSiteInEngineerActivity.selectedsite)
                         .child(dateLong).child("LaborCount").getValue(String.class);
 
                 if (LaborCountFromFirebase == null) {
@@ -189,8 +188,8 @@ public class sitereport extends AppCompatActivity implements AdapterView.OnItemS
                 savedLaborCountFromFirebase = LaborCountFromFirebase;
 
 
-                String taskFromFirebase = dataSnapshot.child("People").child(login.usname)
-                        .child(engineerassignedCity.selectedcity).child(eachSiteInEngineer.selectedsite)
+                String taskFromFirebase = dataSnapshot.child("People").child(LoginActivity.usname)
+                        .child(engineerassignedCityActivity.selectedcity).child(eachSiteInEngineerActivity.selectedsite)
                         .child(dateLong).child("Today's Task").getValue(String.class);
                 if (taskFromFirebase == null) {
                     taskFromFirebase = "";
@@ -199,9 +198,9 @@ public class sitereport extends AppCompatActivity implements AdapterView.OnItemS
                 savedTaskFromFirebase = taskFromFirebase;
 
 
-                String RequirementFromFirebase = dataSnapshot.child("People").child(login.usname)
-                        .child(engineerassignedCity.selectedcity).child(eachSiteInEngineer.selectedsite)
-                        .child(dateLong).child("Today's Requirement").getValue(String.class);
+                String RequirementFromFirebase = dataSnapshot.child("People").child(LoginActivity.usname)
+                        .child(engineerassignedCityActivity.selectedcity).child(eachSiteInEngineerActivity.selectedsite)
+                        .child(dateLong).child("Today's RequirementActivity").getValue(String.class);
                 if (RequirementFromFirebase == null ) {
                     RequirementFromFirebase = "";
                 }
@@ -421,14 +420,14 @@ public class sitereport extends AppCompatActivity implements AdapterView.OnItemS
         doc.setMargins(2, 0, 2, 2);
 
         //  String pdfName = "/";
-      //  pdfName = pdfName + engineerassignedCity.selectedcity + "_" + eachSiteInEngineer.selectedsite + "_" + sitelocation.getText().toString() + dateLong;
+      //  pdfName = pdfName + engineerassignedCityActivity.selectedcity + "_" + eachSiteInEngineerActivity.selectedsite + "_" + sitelocation.getText().toString() + dateLong;
        // pdfName = pdfName + ".pdf";
 
 
         //  String outpath = Environment.getExternalStorageDirectory() + pdfName;
         String directoryPath = getFilesDir().getAbsolutePath();
 
-        String pdfName = engineerassignedCity.selectedcity + "_" + eachSiteInEngineer.selectedsite + "_" + sitelocation.getText().toString() + dateLong;
+        String pdfName = engineerassignedCityActivity.selectedcity + "_" + eachSiteInEngineerActivity.selectedsite + "_" + sitelocation.getText().toString() + dateLong;
         pdfName = pdfName.replace(" ", "") + ".pdf";
 
 
@@ -457,8 +456,8 @@ public class sitereport extends AppCompatActivity implements AdapterView.OnItemS
             date.setAlignment(Element.ALIGN_LEFT);
             doc.add(date);
 
-            doc.add(addtoreport("Name Of Engineer", login.usname));
-            doc.add(addtoreport("Site Location", engineerassignedCity.selectedcity + "->" + eachSiteInEngineer.selectedsite + "->" + sitelocation.getText().toString()));
+            doc.add(addtoreport("Name Of Engineer", LoginActivity.usname));
+            doc.add(addtoreport("Site Location", engineerassignedCityActivity.selectedcity + "->" + eachSiteInEngineerActivity.selectedsite + "->" + sitelocation.getText().toString()));
             doc.add(addtoreport("Report Description", rptdescription.getText().toString()));
 
             Font fontcontent = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.NORMAL);
@@ -635,9 +634,9 @@ public class sitereport extends AppCompatActivity implements AdapterView.OnItemS
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            doc.add(addtoreport("Labor Count", savedLaborCountFromFirebase));
+            doc.add(addtoreport("LaborActivity Count", savedLaborCountFromFirebase));
             doc.add(addtoreport("Task From Admin", savedTaskFromFirebase));
-            doc.add(addtoreport("Requirement From Engineer", savedRequirementFromFirebase));
+            doc.add(addtoreport("RequirementActivity From Engineer", savedRequirementFromFirebase));
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -867,7 +866,7 @@ public class sitereport extends AppCompatActivity implements AdapterView.OnItemS
         }else if(equipmentInfoArrayList==null)
         {
             Toast.makeText(sitereport.this, "Please upload equipment data first", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(sitereport.this, Equipment.class);
+            Intent intent = new Intent(sitereport.this, EquipmentActivity.class);
             intent.putExtra("forequip", "2");
             startActivity(intent);
             return false;
@@ -914,7 +913,7 @@ public class sitereport extends AppCompatActivity implements AdapterView.OnItemS
         progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
         progressDialog.show();
         //  final StorageReference sRef = mStorageReference.child(Constants.STORAGE_PATH_UPLOADS + System.currentTimeMillis() + ".pdf");
-        final StorageReference sRef = mStorageReference.child(Constants.STORAGE_PATH_UPLOADS + login.usname + dateLong + ".pdf");
+        final StorageReference sRef = mStorageReference.child(Constants.STORAGE_PATH_UPLOADS + LoginActivity.usname + dateLong + ".pdf");
 
         try {
             sRef.putFile(Uri.fromFile(fl)).continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
@@ -941,17 +940,17 @@ public class sitereport extends AppCompatActivity implements AdapterView.OnItemS
                             Map<String, ?> allEntries = sharedp.getAll();
                             for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
                                 if (entry.getKey().contains("Pipes")) {
-                                    mDatabaseReference.child("ConstructionSite").child("Pipeline").child(engineerassignedCity.selectedcity).child(eachSiteInEngineer.selectedsite).child(login.usname).child("Pipes").child(entry.getKey()).setValue(entry.getValue()+"");
+                                    mDatabaseReference.child("ConstructionSite").child("Pipeline").child(engineerassignedCityActivity.selectedcity).child(eachSiteInEngineerActivity.selectedsite).child(LoginActivity.usname).child("Pipes").child(entry.getKey()).setValue(entry.getValue()+"");
 
                                 }else {
-                                    mDatabaseReference.child("ConstructionSite").child("Pipeline").child(engineerassignedCity.selectedcity).child(eachSiteInEngineer.selectedsite).child(login.usname).child("Fitting").child(entry.getKey()).setValue(entry.getValue()+"");
+                                    mDatabaseReference.child("ConstructionSite").child("Pipeline").child(engineerassignedCityActivity.selectedcity).child(eachSiteInEngineerActivity.selectedsite).child(LoginActivity.usname).child("Fitting").child(entry.getKey()).setValue(entry.getValue()+"");
 
                                 }
                             }
 
                             int p = 1;
                             for (workInfo obj : wk) {
-                                mDatabaseReference.child("People").child(login.usname).child(engineerassignedCity.selectedcity).child(eachSiteInEngineer.selectedsite).child(dateLong).child("Material").child(p + "").setValue(obj);
+                                mDatabaseReference.child("People").child(LoginActivity.usname).child(engineerassignedCityActivity.selectedcity).child(eachSiteInEngineerActivity.selectedsite).child(dateLong).child("Material").child(p + "").setValue(obj);
                                 p++;
                             }
 
@@ -960,7 +959,7 @@ public class sitereport extends AppCompatActivity implements AdapterView.OnItemS
                         String temp = downloadUri.toString();
                         // Toast.makeText(getApplicationContext(), downloadUri + "", Toast.LENGTH_LONG).show();
 
-                        mDatabaseReference.child("People").child(login.usname).child(engineerassignedCity.selectedcity).child(eachSiteInEngineer.selectedsite).child(dateLong).child("Report").setValue(temp);
+                        mDatabaseReference.child("People").child(LoginActivity.usname).child(engineerassignedCityActivity.selectedcity).child(eachSiteInEngineerActivity.selectedsite).child(dateLong).child("Report").setValue(temp);
 
                     } else {
                         Toast.makeText(sitereport.this, "upload failed: ", Toast.LENGTH_SHORT).show();

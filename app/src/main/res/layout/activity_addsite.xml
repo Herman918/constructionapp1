@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:id="@+id/create_new_site"
     android:orientation="vertical"
-    tools:context=".AddSite">
+    tools:context=".Presentation.SecondPageOfAdmin.Menu.AddSiteActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

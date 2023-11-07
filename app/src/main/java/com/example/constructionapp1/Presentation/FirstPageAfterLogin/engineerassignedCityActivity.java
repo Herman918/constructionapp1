@@ -1,4 +1,4 @@
-package com.example.constructionapp1;
+package com.example.constructionapp1.Presentation.FirstPageAfterLogin;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,10 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.constructionapp1.Login.login;
+import com.example.constructionapp1.Presentation.Engineer_delete_Adapter;
+import com.example.constructionapp1.Presentation.Login.LoginActivity;
+import com.example.constructionapp1.Presentation.eachSiteInEngineerActivity;
+import com.example.constructionapp1.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,7 +22,7 @@ import com.google.firebase.database.annotations.Nullable;
 
 import java.util.ArrayList;
 
-public class engineerassignedCity extends AppCompatActivity {
+public class engineerassignedCityActivity extends AppCompatActivity {
 
     ArrayList<String> assignedCity = new ArrayList<>();
     // if I declare assignedCity as global then it is creating problem.
@@ -38,17 +41,17 @@ public class engineerassignedCity extends AppCompatActivity {
         tableuserPpl.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                engineerassignedCity.this.assignedCity.clear();
-                for (DataSnapshot ds : dataSnapshot.child(login.usname).getChildren()) {
+                engineerassignedCityActivity.this.assignedCity.clear();
+                for (DataSnapshot ds : dataSnapshot.child(LoginActivity.usname).getChildren()) {
                     assignedCity.add(ds.getKey());
-                    engineerassignedCity.this.adapterforassignedcity = new Engineer_delete_Adapter(engineerassignedCity.this, assignedCity);
+                    engineerassignedCityActivity.this.adapterforassignedcity = new Engineer_delete_Adapter(engineerassignedCityActivity.this, assignedCity);
                     ListView listView = findViewById(R.id.dele_engi);
-                    listView.setAdapter(engineerassignedCity.this.adapterforassignedcity);
+                    listView.setAdapter(engineerassignedCityActivity.this.adapterforassignedcity);
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             selectedcity = assignedCity.get(position);
-                            startActivity(new Intent(engineerassignedCity.this, eachSiteInEngineer.class));
+                            startActivity(new Intent(engineerassignedCityActivity.this, eachSiteInEngineerActivity.class));
                         }
                     });
                 }

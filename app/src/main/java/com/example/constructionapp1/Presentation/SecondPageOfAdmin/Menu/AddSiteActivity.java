@@ -1,4 +1,4 @@
-package com.example.constructionapp1;
+package com.example.constructionapp1.Presentation.SecondPageOfAdmin.Menu;
 
 import android.os.Bundle;
 import android.view.View;
@@ -13,13 +13,15 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.constructionapp1.Presentation.CustomSpinnerAdapter;
+import com.example.constructionapp1.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class AddSite extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class AddSiteActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     String selected,temp;
 
@@ -116,14 +118,14 @@ public class AddSite extends AppCompatActivity implements AdapterView.OnItemSele
                     });
 
 
-                    //  Toast.makeText(AddSite.this, "Site ADDED", Toast.LENGTH_SHORT).show();
+                    //  Toast.makeText(AddSiteActivity.this, "Site ADDED", Toast.LENGTH_SHORT).show();
                     finish();
                 }
                 else
                 {
-                    Animation shake = AnimationUtils.loadAnimation(AddSite.this, R.anim.shake);
+                    Animation shake = AnimationUtils.loadAnimation(AddSiteActivity.this, R.anim.shake);
                     t4.startAnimation(shake);
-                    Toast.makeText(AddSite.this, "Please add this engineer first", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddSiteActivity.this, "Please add this engineer first", Toast.LENGTH_SHORT).show();
 
                 }
             }

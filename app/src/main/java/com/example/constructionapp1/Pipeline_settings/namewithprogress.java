@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.constructionapp1.R;
-import com.example.constructionapp1.secondpagepofadmin.SiteObject;
+import com.example.constructionapp1.Domain.SecondPageOfAdmin.SiteObject;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

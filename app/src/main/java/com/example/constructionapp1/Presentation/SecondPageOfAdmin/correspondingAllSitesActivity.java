@@ -1,4 +1,4 @@
-package com.example.constructionapp1.secondpagepofadmin;
+package com.example.constructionapp1.Presentation.SecondPageOfAdmin;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -9,12 +9,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.constructionapp1.Equipment;
-import com.example.constructionapp1.Labor;
+import com.example.constructionapp1.Presentation.WorkActivities.EquipmentActivity;
+import com.example.constructionapp1.Presentation.WorkActivities.LaborActivity;
 import com.example.constructionapp1.Pipeline_settings.Table;
 import com.example.constructionapp1.R;
-import com.example.constructionapp1.Requirement;
-import com.example.constructionapp1.ToDoList;
+import com.example.constructionapp1.Presentation.WorkActivities.RequirementActivity;
+import com.example.constructionapp1.Presentation.WorkActivities.ToDoListActivity;
+import com.example.constructionapp1.Domain.SecondPageOfAdmin.SiteObject;
 import com.example.constructionapp1.workInfo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,13 +23,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
-public class correspondingAllSites extends AppCompatActivity implements
+public class correspondingAllSitesActivity extends AppCompatActivity implements
         siteadapter.customButtonListener {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference tableuser = database.getReference();
@@ -47,7 +47,7 @@ public class correspondingAllSites extends AppCompatActivity implements
 
         siteadapter adapter = new siteadapter(this, siteList);
         ListView listView = findViewById(R.id.list);
-        adapter.setCustomButtonListner(correspondingAllSites.this);
+        adapter.setCustomButtonListner(correspondingAllSitesActivity.this);
         listView.setAdapter(adapter);
 
     }
@@ -59,21 +59,21 @@ public class correspondingAllSites extends AppCompatActivity implements
         {
             case 0:
             {
-                    Intent intent = new Intent(correspondingAllSites.this, Labor.class);
+                    Intent intent = new Intent(correspondingAllSitesActivity.this, LaborActivity.class);
                     intent.putExtra("forlabor", supervisorName);
                     startActivity(intent);
                     break;
             }
             case 1:
             {
-                    Intent intent = new Intent(correspondingAllSites.this, Equipment.class);
+                    Intent intent = new Intent(correspondingAllSitesActivity.this, EquipmentActivity.class);
                     intent.putExtra("forequip", supervisorName);
                     startActivity(intent);
                     break;
             }
             case 2:
             {
-                    Intent intent = new Intent(correspondingAllSites.this, ToDoList.class);
+                    Intent intent = new Intent(correspondingAllSitesActivity.this, ToDoListActivity.class);
                     intent.putExtra("todolist", supervisorName);
                     startActivity(intent);
                     break;
@@ -81,7 +81,7 @@ public class correspondingAllSites extends AppCompatActivity implements
 
             case 3:
             {
-                    Intent intent = new Intent(correspondingAllSites.this, Requirement.class);
+                    Intent intent = new Intent(correspondingAllSitesActivity.this, RequirementActivity.class);
                     intent.putExtra("anyrequirement", supervisorName);
                     startActivity(intent);
                     break;
@@ -99,7 +99,7 @@ public class correspondingAllSites extends AppCompatActivity implements
                             startActivity(intent);
 
                         } catch (NullPointerException e) {
-                            Toast.makeText(correspondingAllSites.this, "File has not uploaded yet by Engineer", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(correspondingAllSitesActivity.this, "File has not uploaded yet by Engineer", Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -130,14 +130,14 @@ public class correspondingAllSites extends AppCompatActivity implements
                                         }
                                     }
                                     if (!wk.isEmpty()) {
-                                        Intent intent = new Intent(correspondingAllSites.this, Table.class);
+                                        Intent intent = new Intent(correspondingAllSitesActivity.this, Table.class);
                                         intent.putExtra("Tbl", wk);
                                         startActivity(intent);
                                     } else {
-                                        Toast.makeText(correspondingAllSites.this, "Not uploaded yet by Engineer", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(correspondingAllSitesActivity.this, "Not uploaded yet by Engineer", Toast.LENGTH_SHORT).show();
                                     }
                                 } else {
-                                    Toast.makeText(correspondingAllSites.this, "Not uploaded yet by Engineer", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(correspondingAllSitesActivity.this, "Not uploaded yet by Engineer", Toast.LENGTH_SHORT).show();
                                 }
                             }
 
@@ -156,7 +156,7 @@ public class correspondingAllSites extends AppCompatActivity implements
 //            @Override
 //            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                SiteObject sb=(SiteObject)parent.getItemAtPosition(position);
-//                Intent intent = new Intent(correspondingAllSites.this, Labor.class);
+//                Intent intent = new Intent(correspondingAllSitesActivity.this, LaborActivity.class);
 //                intent.putExtra("forlabor", sb.getSupervisorName());
 //                startActivity(intent);
 //

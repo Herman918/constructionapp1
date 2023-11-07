@@ -1,4 +1,4 @@
-package com.example.constructionapp1.firstpageafterLogin;
+package com.example.constructionapp1.Presentation.FirstPageAfterLogin;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.constructionapp1.R;
+import com.example.constructionapp1.Domain.FirstPageAfterLogin.Card;
 
 import java.util.ArrayList;
 

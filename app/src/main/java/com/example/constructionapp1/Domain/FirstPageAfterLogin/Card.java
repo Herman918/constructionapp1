@@ -1,4 +1,4 @@
-package com.example.constructionapp1.firstpageafterLogin;
+package com.example.constructionapp1.Domain.FirstPageAfterLogin;
 
 public class Card {
 

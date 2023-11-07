@@ -1,4 +1,4 @@
-package com.example.constructionapp1;
+package com.example.constructionapp1.Presentation.SecondPageOfAdmin.Menu;
 
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.constructionapp1.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.annotations.Nullable;
 
-public class Add_Member extends AppCompatActivity {
+public class AddMemberActivity extends AppCompatActivity {
 
     private Button buttonforaddMember;
     private EditText usernameforaddMember,passwordforaddMember;
@@ -48,10 +49,10 @@ public class Add_Member extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (usernameforaddMember.getText().toString().length() == 0) {
-                    Animation shake = AnimationUtils.loadAnimation(Add_Member.this, R.anim.shake);
+                    Animation shake = AnimationUtils.loadAnimation(AddMemberActivity.this, R.anim.shake);
                     usernameforaddMember.startAnimation(shake);
                 } else if (passwordforaddMember.getText().toString().length() == 0) {
-                    Animation shake = AnimationUtils.loadAnimation(Add_Member.this, R.anim.shake);
+                    Animation shake = AnimationUtils.loadAnimation(AddMemberActivity.this, R.anim.shake);
                     passwordforaddMember.startAnimation(shake);
                 }
                 else if(adminradiobutton.isChecked()){
@@ -62,7 +63,7 @@ public class Add_Member extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             if(dataSnapshot.child("Admin").hasChild(usernameforaddMember.getText().toString().trim().toLowerCase()))
-                                Toast.makeText(Add_Member.this, "This name Admin already exists", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(AddMemberActivity.this, "This name Admin already exists", Toast.LENGTH_SHORT).show();
                             else {
                                 tableuseraddMember.child("Admin").child(usernameforaddMember.getText().toString().toLowerCase()).child("password").setValue(passwordforaddMember.getText().toString());
                                 finish();
@@ -83,7 +84,7 @@ public class Add_Member extends AppCompatActivity {
 //                        @Override
 //                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 //                            if(dataSnapshot.child("Admin").hasChild(usernameforaddMember.getText().toString().trim()))
-//                                Toast.makeText(Add_Member.this, "This name Admin already exists", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(AddMemberActivity.this, "This name Admin already exists", Toast.LENGTH_SHORT).show();
 //                            else {
 //                                tableuseraddMember.child("Admin").child(usernameforaddMember.getText().toString()).setValue(us);
 //                                finish();
@@ -100,7 +101,7 @@ public class Add_Member extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             if (dataSnapshot.child("Engineer").hasChild(usernameforaddMember.getText().toString().trim().toLowerCase()))
-                                Toast.makeText(Add_Member.this, "This name Engineer already exists", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(AddMemberActivity.this, "This name Engineer already exists", Toast.LENGTH_SHORT).show();
                             else {
                                 tableuseraddMember.child("Engineer").child(usernameforaddMember.getText().toString().toLowerCase()).child("password").setValue(passwordforaddMember.getText().toString());
                                 finish();
@@ -118,7 +119,7 @@ public class Add_Member extends AppCompatActivity {
 //                        @Override
 //                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 //                            if (dataSnapshot.child("Engineer").hasChild(usernameforaddMember.getText().toString().trim()))
-//                                Toast.makeText(Add_Member.this, "This name Engineer already exists", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(AddMemberActivity.this, "This name Engineer already exists", Toast.LENGTH_SHORT).show();
 //                            else {
 //                                tableuseraddMember.child("Engineer").child(usernameforaddMember.getText().toString()).setValue(us);
 //                                finish();

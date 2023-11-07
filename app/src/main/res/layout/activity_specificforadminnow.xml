@@ -17,7 +17,7 @@
         android:verticalSpacing="7dp"
         android:alignmentMode="alignMargins"
         android:padding="14dp"
-        tools:context="com.example.constructionapp1.firstpageafterLogin.AdminActivity">
+        tools:context="com.example.constructionapp1.Presentation.FirstPageAfterLogin.AdminActivity">
     </GridView>
 
     <com.google.android.material.navigation.NavigationView
