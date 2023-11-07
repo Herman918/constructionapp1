@@ -54,7 +54,7 @@
 
         <activity
             android:name=".Presentation.WorkActivities.PDFViewerActivity"
-            android:parentActivityName=".sitereport" />
+            android:parentActivityName=".Presentation.sitereportActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -79,7 +79,7 @@
         <activity android:name=".Presentation.WorkActivities.LaborActivity" />
 
         <activity
-            android:name=".sitereport"
+            android:name=".Presentation.sitereportActivity"
             android:configChanges="keyboard|orientation|screenSize" />
 
         <activity android:name=".Presentation.WorkActivities.EquipmentActivity"
@@ -93,15 +93,15 @@
 
 
         <activity
-            android:name=".Pipeline_settings.city"
+            android:name=".Presentation.WorkActivities.Pipelines.cityActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".Pipeline_settings.namewithprogress"
+            android:name=".Presentation.WorkActivities.Pipelines.namewithprogressActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".Pipeline_settings.Table"
+            android:name=".Presentation.WorkActivities.Pipelines.TableActivity"
             android:label="Today" />
-        <activity android:name=".Pipeline_settings.Uptodate_Table"
+        <activity android:name=".Presentation.WorkActivities.Pipelines.Uptodate_TableActivity"
             android:label="UpToDate"/>
 
     </application>

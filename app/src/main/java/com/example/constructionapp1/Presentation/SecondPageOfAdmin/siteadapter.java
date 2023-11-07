@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.example.constructionapp1.Domain.SecondPageOfAdmin.SiteObject;
+import com.example.constructionapp1.Data.SecondPageOfAdmin.SiteObject;
 import com.example.constructionapp1.R;
 import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
 import com.nightonke.boommenu.BoomButtons.TextOutsideCircleButton;

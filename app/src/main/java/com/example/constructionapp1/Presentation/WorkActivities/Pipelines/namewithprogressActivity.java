@@ -1,4 +1,4 @@
-package com.example.constructionapp1.Pipeline_settings;
+package com.example.constructionapp1.Presentation.WorkActivities.Pipelines;
 
 import android.os.Bundle;
 import android.widget.ListView;
@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.constructionapp1.R;
-import com.example.constructionapp1.Domain.SecondPageOfAdmin.SiteObject;
+import com.example.constructionapp1.Data.SecondPageOfAdmin.SiteObject;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -18,7 +18,7 @@ import com.google.firebase.database.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class namewithprogress extends AppCompatActivity {
+public class namewithprogressActivity extends AppCompatActivity {
     private ListView listView;
 
     private ArrayList<info> siteInfo = new ArrayList<>();
@@ -34,7 +34,7 @@ public class namewithprogress extends AppCompatActivity {
         setContentView(R.layout.activity_delete_engineer);
         listView = findViewById(R.id.dele_engi);
         final String title = getIntent().getStringExtra("category");
-        final String cityname = getIntent().getStringExtra("city");
+        final String cityname = getIntent().getStringExtra("cityActivity");
         getSupportActionBar().setTitle(cityname);
 
         sitename.child(title).child(cityname).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -87,7 +87,7 @@ public class namewithprogress extends AppCompatActivity {
                     }
                     siteInfo.add(new info(dssite.getKey(), pipesmtr,fittingcount, PIPE, FIT, pipeline));
                 }
-                adapter = new namewithprogressadapter(namewithprogress.this, siteInfo);
+                adapter = new namewithprogressadapter(namewithprogressActivity.this, siteInfo);
                 listView.setAdapter(adapter);
 
             }

@@ -1,4 +1,4 @@
-package com.example.constructionapp1.Pipeline_settings;
+package com.example.constructionapp1.Presentation.WorkActivities.Pipelines;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -10,24 +10,25 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.constructionapp1.R;
+import com.example.constructionapp1.Data.workInfo;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
-public class Uptodate_Table extends AppCompatActivity {
+public class TableActivity extends AppCompatActivity {
+
+
     private TableLayout tableLyt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_table);
         tableLyt=findViewById(R.id.table);
-        HashMap<String , String> wk=(HashMap<String, String>) getIntent().getSerializableExtra("UpToDateSummary");
+        ArrayList<workInfo> wk=(ArrayList<workInfo>) getIntent().getSerializableExtra("Tbl");
         getHeader();
-        for (HashMap.Entry<String,String> st : wk.entrySet())
+        for( workInfo obj :wk)
         {
-            String[] key=st.getKey().split(",");
-            String value = st.getValue();
-            addDataToTable(key[0],key[1],key[2],value);
-
+            addDataToTable(obj);
         }
     }
 
@@ -60,6 +61,13 @@ public class Uptodate_Table extends AppCompatActivity {
         label_diameter.setGravity(1);
         tr_head.addView(label_diameter); // add the column to the table row here
 
+        TextView label_today = new TextView(this);
+        label_today.setText(R.string.today); // set the text for the header
+        label_today.setTextColor(Color.WHITE); // set the color
+        label_today.setPadding(2, 5, 2, 5); // set the padding (if required)
+        label_today.setGravity(1);
+        tr_head.addView(label_today); // add the column to the table row here
+
         TextView label_update = new TextView(this);
         label_update.setText(R.string.uptodate); // set the text for the header
         label_update.setTextColor(Color.WHITE); // set the color
@@ -74,8 +82,7 @@ public class Uptodate_Table extends AppCompatActivity {
 
     }
 
-
-    private void addDataToTable(String material,String speMaterial,String lbdiameter,String lbuptodate) {
+    private void addDataToTable(workInfo obj) {
         // Create the table row
         TableRow tr = new TableRow(this);
         tr.setBackgroundColor(getResources().getColor(R.color.amber_100));
@@ -87,14 +94,14 @@ public class Uptodate_Table extends AppCompatActivity {
 
 
         TextView  labelmt = new TextView(this);
-        labelmt.setText(material);
+        labelmt.setText(obj.getMaterial());
         labelmt.setPadding(2, 10, 2, 10);
         labelmt.setTextColor(getResources().getColor(R.color.pink_400));
         labelmt.setGravity(1);
         tr.addView(labelmt);
 
         TextView labelsp_mt = new TextView(this);
-        labelsp_mt.setText(speMaterial);
+        labelsp_mt.setText(obj.getMaterial_type());
         labelsp_mt.setPadding(2, 10, 2, 10);
         labelsp_mt.setTextColor(getResources().getColor(R.color.pink_400));
         labelsp_mt.setGravity(1);
@@ -104,18 +111,30 @@ public class Uptodate_Table extends AppCompatActivity {
         diameter.setPadding(2, 10, 2, 10);
         diameter.setTextColor(getResources().getColor(R.color.pink_400));
         diameter.setGravity(1);
-        diameter.setText(lbdiameter+"mm");
+        diameter.setText(obj.getDiameter()+"mm");
         diameter.setBackground(getResources().getDrawable(R.drawable.table_cell_bg));
         tr.addView(diameter);
+
+        TextView today = new TextView(this);
+        today.setPadding(2, 10, 2, 10);
+        today.setTextColor(getResources().getColor(R.color.pink_400));
+        today.setGravity(1);
+        if(obj.getMaterial().equals("Pipes"))
+            today.setText(obj.getToday()+" Mtr");
+        else
+            today.setText(obj.getToday()+" Qtn");
+        today.setBackground(getResources().getDrawable(R.drawable.table_cell_bg));
+        tr.addView(today);
+
 
         TextView uptodate = new TextView(this);
         uptodate.setPadding(2, 10, 2, 10);
         uptodate.setTextColor(getResources().getColor(R.color.pink_400));
         uptodate.setGravity(1);
-        if(material.equals("Pipes"))
-            uptodate.setText(lbuptodate+" Mtr");
+        if(obj.getMaterial().equals("Pipes"))
+            uptodate.setText(obj.getToday()+" Mtr");
         else
-            uptodate.setText(lbuptodate+" Qtn");
+            uptodate.setText(obj.getToday()+" Qtn");
         uptodate.setBackgroundColor(getResources().getColor(R.color.transparent_bg));
         uptodate.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         tr.addView(uptodate);
@@ -128,3 +147,4 @@ public class Uptodate_Table extends AppCompatActivity {
 
     }
 }
+

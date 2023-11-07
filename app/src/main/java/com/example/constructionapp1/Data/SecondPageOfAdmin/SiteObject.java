@@ -1,4 +1,4 @@
-package com.example.constructionapp1.Domain.SecondPageOfAdmin;
+package com.example.constructionapp1.Data.SecondPageOfAdmin;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package com.example.constructionapp1.Pipeline_settings;
+package com.example.constructionapp1.Presentation.WorkActivities.Pipelines;
 
 import android.content.Context;
 import android.content.Intent;
@@ -19,8 +19,8 @@ import com.example.constructionapp1.Presentation.SecondPageOfAdmin.corresponding
 
 import java.util.ArrayList;
 
-public class namewithprogressadapter extends ArrayAdapter<namewithprogress.info> {
-    public namewithprogressadapter(Context context, ArrayList<namewithprogress.info> sites) {
+public class namewithprogressadapter extends ArrayAdapter<namewithprogressActivity.info> {
+    public namewithprogressadapter(Context context, ArrayList<namewithprogressActivity.info> sites) {
         super(context, 0, sites);
     }
 
@@ -35,7 +35,7 @@ public class namewithprogressadapter extends ArrayAdapter<namewithprogress.info>
             cardview = LayoutInflater.from(getContext()).inflate(
                     R.layout.area_and_progress, parent, false);
         }
-        final namewithprogress.info obj = getItem(position);
+        final namewithprogressActivity.info obj = getItem(position);
 
         TextView nameofsite= cardview.findViewById(R.id.textView2);
 
@@ -137,7 +137,7 @@ public class namewithprogressadapter extends ArrayAdapter<namewithprogress.info>
         llpip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(),Uptodate_Table.class);
+                Intent intent = new Intent(getContext(), Uptodate_TableActivity.class);
                 intent.putExtra("UpToDateSummary", obj.p);
                 ContextCompat.startActivity(getContext(),intent, Bundle.EMPTY);
             }
@@ -148,7 +148,7 @@ public class namewithprogressadapter extends ArrayAdapter<namewithprogress.info>
         llfit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(),Uptodate_Table.class);
+                Intent intent = new Intent(getContext(), Uptodate_TableActivity.class);
                 intent.putExtra("UpToDateSummary", obj.f);
                 ContextCompat.startActivity(getContext(),intent, Bundle.EMPTY);
 

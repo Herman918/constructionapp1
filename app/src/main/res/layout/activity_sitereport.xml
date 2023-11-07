@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".sitereport">
+    tools:context=".Presentation.sitereportActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -170,7 +170,7 @@
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
             android:stretchColumns="*"
-            tools:context=".sitereport">
+            tools:context=".Presentation.sitereportActivity">
 
 
         </TableLayout>

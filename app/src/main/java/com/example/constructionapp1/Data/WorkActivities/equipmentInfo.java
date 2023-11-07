@@ -1,4 +1,4 @@
-package com.example.constructionapp1.Domain.WorkActivities;
+package com.example.constructionapp1.Data.WorkActivities;
 
 public class equipmentInfo {
     private String equipmentWithNumberplate;

@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.constructionapp1.R;
-import com.example.constructionapp1.Domain.FirstPageAfterLogin.Card;
 
 import java.util.ArrayList;
 

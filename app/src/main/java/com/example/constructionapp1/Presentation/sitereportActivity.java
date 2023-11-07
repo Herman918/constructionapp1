@@ -1,4 +1,4 @@
-package com.example.constructionapp1;
+package com.example.constructionapp1.Presentation;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -40,13 +40,13 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
-import com.example.constructionapp1.Domain.WorkActivities.equipmentInfo;
-import com.example.constructionapp1.Presentation.CustomSpinnerAdapter;
+import com.example.constructionapp1.Data.WorkActivities.equipmentInfo;
 import com.example.constructionapp1.Presentation.FirstPageAfterLogin.engineerassignedCityActivity;
 import com.example.constructionapp1.Presentation.Login.LoginActivity;
 import com.example.constructionapp1.Presentation.WorkActivities.EquipmentActivity;
 import com.example.constructionapp1.Presentation.WorkActivities.PDFViewerActivity;
-import com.example.constructionapp1.Presentation.eachSiteInEngineerActivity;
+import com.example.constructionapp1.R;
+import com.example.constructionapp1.Data.workInfo;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -100,7 +100,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
-public class sitereport extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class sitereportActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
 
     private Date currentDate = new Date();
@@ -330,9 +330,9 @@ public class sitereport extends AppCompatActivity implements AdapterView.OnItemS
                                         try {
                                             createPDF();
                                         } catch (FileNotFoundException e) {
-                                            Toast.makeText(sitereport.this, "File not found ", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(sitereportActivity.this, "File not found ", Toast.LENGTH_SHORT).show();
                                         } catch (DocumentException e) {
-                                            Toast.makeText(sitereport.this, "Document Exception ", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(sitereportActivity.this, "Document Exception ", Toast.LENGTH_SHORT).show();
                                         }
 
                                     }
@@ -473,7 +473,7 @@ public class sitereport extends AppCompatActivity implements AdapterView.OnItemS
             if (selected.equals("Pipeline")) {
                 doc.add(new Paragraph("\n"+"\n"));
 
-//             Table of TodayMaterialInfo
+//             TableActivity of TodayMaterialInfo
                 PdfPCell cell_descr = new PdfPCell(new Paragraph("\n" + "Today", fontcontent));//21
                 cell_descr.setVerticalAlignment(Element.ALIGN_CENTER);
                 cell_descr.setHorizontalAlignment(Element.ALIGN_CENTER);
@@ -561,7 +561,7 @@ public class sitereport extends AppCompatActivity implements AdapterView.OnItemS
                     Toast.makeText(this, "column document exception", Toast.LENGTH_SHORT).show();
                 }
 
-                //Table of uptodateMaterialInfo
+                //TableActivity of uptodateMaterialInfo
                 PdfPCell cell_uptodate = new PdfPCell(new Paragraph("\n" + "UpToDate", fontcontent));//21
                 cell_uptodate.setVerticalAlignment(Element.ALIGN_CENTER);
                 cell_uptodate.setHorizontalAlignment(Element.ALIGN_CENTER);
@@ -640,7 +640,7 @@ public class sitereport extends AppCompatActivity implements AdapterView.OnItemS
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            // Table of vehilce info
+            // TableActivity of vehilce info
             PdfPTable innertable1 = new PdfPTable(1);
 
             PdfPTable table2 = new PdfPTable(2); // 2 columns.
@@ -714,17 +714,17 @@ public class sitereport extends AppCompatActivity implements AdapterView.OnItemS
 //            document.add(image1);
 
             doc.add(table3);
-            Toast.makeText(sitereport.this, "success", Toast.LENGTH_SHORT).show();
+            Toast.makeText(sitereportActivity.this, "success", Toast.LENGTH_SHORT).show();
 
         } catch (FileNotFoundException e) {
-            Toast.makeText(sitereport.this, "Please give access for storage", Toast.LENGTH_SHORT).show();
+            Toast.makeText(sitereportActivity.this, "Please give access for storage", Toast.LENGTH_SHORT).show();
             //  e.printStackTrace();
         } catch (DocumentException e1) {
-            Toast.makeText(sitereport.this, "Document Exception" + e1, Toast.LENGTH_SHORT).show();
+            Toast.makeText(sitereportActivity.this, "Document Exception" + e1, Toast.LENGTH_SHORT).show();
             e1.printStackTrace();
         } catch (NullPointerException npe) {
             fab.requestFocus();
-            Animation shake = AnimationUtils.loadAnimation(sitereport.this, R.anim.shake);
+            Animation shake = AnimationUtils.loadAnimation(sitereportActivity.this, R.anim.shake);
             fab.startAnimation(shake);
 
         } finally {
@@ -851,22 +851,22 @@ public class sitereport extends AppCompatActivity implements AdapterView.OnItemS
     public boolean variouscheck() {
         if (sitelocation.getText().toString().length() == 0) {
             sitelocation.requestFocus();
-            Animation shake = AnimationUtils.loadAnimation(sitereport.this, R.anim.shake);
+            Animation shake = AnimationUtils.loadAnimation(sitereportActivity.this, R.anim.shake);
             sitelocation.startAnimation(shake);
             return false;
         }
         else if (rptdescription.getText().toString().length() == 0) {
             rptdescription.requestFocus();
-            Animation shake = AnimationUtils.loadAnimation(sitereport.this, R.anim.shake);
+            Animation shake = AnimationUtils.loadAnimation(sitereportActivity.this, R.anim.shake);
             rptdescription.startAnimation(shake);
             return false;
         } else if (imageView.getDrawable() == null) {
-            Toast.makeText(sitereport.this, "Please take today's progress photo", Toast.LENGTH_SHORT).show();
+            Toast.makeText(sitereportActivity.this, "Please take today's progress photo", Toast.LENGTH_SHORT).show();
             return false;
         }else if(equipmentInfoArrayList==null)
         {
-            Toast.makeText(sitereport.this, "Please upload equipment data first", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(sitereport.this, EquipmentActivity.class);
+            Toast.makeText(sitereportActivity.this, "Please upload equipment data first", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(sitereportActivity.this, EquipmentActivity.class);
             intent.putExtra("forequip", "2");
             startActivity(intent);
             return false;
@@ -962,7 +962,7 @@ public class sitereport extends AppCompatActivity implements AdapterView.OnItemS
                         mDatabaseReference.child("People").child(LoginActivity.usname).child(engineerassignedCityActivity.selectedcity).child(eachSiteInEngineerActivity.selectedsite).child(dateLong).child("Report").setValue(temp);
 
                     } else {
-                        Toast.makeText(sitereport.this, "upload failed: ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(sitereportActivity.this, "upload failed: ", Toast.LENGTH_SHORT).show();
                         progressDialog.dismiss();
                     }
                 }
@@ -1239,7 +1239,7 @@ public class sitereport extends AppCompatActivity implements AdapterView.OnItemS
                     uptodate.setText(aFloat + "");
 
                 } catch (NullPointerException npe) {
-                    Toast.makeText(sitereport.this, "Select Pipeline as constructiontype", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(sitereportActivity.this, "Select Pipeline as constructiontype", Toast.LENGTH_SHORT).show();
                 }
 
             }

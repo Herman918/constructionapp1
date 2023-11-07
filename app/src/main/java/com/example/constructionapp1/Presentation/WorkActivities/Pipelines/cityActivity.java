@@ -1,4 +1,4 @@
-package com.example.constructionapp1.Pipeline_settings;
+package com.example.constructionapp1.Presentation.WorkActivities.Pipelines;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,7 +20,7 @@ import com.google.firebase.database.annotations.Nullable;
 
 import java.util.ArrayList;
 
-public class city extends AppCompatActivity {
+public class cityActivity extends AppCompatActivity {
 
     ArrayList<String> City = new ArrayList<>();
     Engineer_delete_Adapter adapterforcity;
@@ -47,7 +47,7 @@ public class city extends AppCompatActivity {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     City.add(ds.getKey());
                 }
-                adapterforcity = new Engineer_delete_Adapter(city.this, City);
+                adapterforcity = new Engineer_delete_Adapter(cityActivity.this, City);
                 listView.setAdapter(adapterforcity);
             }
 
@@ -62,9 +62,9 @@ public class city extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 selectedcity = City.get(position);
-                Intent intent = new Intent(city.this, namewithprogress.class);
+                Intent intent = new Intent(cityActivity.this, namewithprogressActivity.class);
                 intent.putExtra("category", title);
-                intent.putExtra("city",selectedcity );
+                intent.putExtra("cityActivity",selectedcity );
                 startActivity(intent);
             }
         });

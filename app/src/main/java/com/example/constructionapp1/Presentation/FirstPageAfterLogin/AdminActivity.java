@@ -16,10 +16,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.constructionapp1.Presentation.SecondPageOfAdmin.Menu.AddSiteActivity;
 import com.example.constructionapp1.Presentation.SecondPageOfAdmin.Menu.AddMemberActivity;
 import com.example.constructionapp1.Presentation.SecondPageOfAdmin.Menu.EngineerDeletePageActivity;
-import com.example.constructionapp1.Pipeline_settings.city;
+import com.example.constructionapp1.Presentation.WorkActivities.Pipelines.cityActivity;
 import com.example.constructionapp1.R;
-import com.example.constructionapp1.Domain.FirstPageAfterLogin.Card;
-import com.example.constructionapp1.Domain.SecondPageOfAdmin.SiteObject;
+import com.example.constructionapp1.Data.SecondPageOfAdmin.SiteObject;
 import com.example.constructionapp1.Presentation.SecondPageOfAdmin.correspondingAllSitesActivity;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
@@ -68,7 +67,7 @@ public class AdminActivity extends AppCompatActivity {
 
             switch (card.getCdtitle()) {
                 case "Pipeline": {
-                    Intent intent = new Intent(AdminActivity.this, city.class);
+                    Intent intent = new Intent(AdminActivity.this, cityActivity.class);
                     intent.putExtra("category", "Pipeline");
                     startActivity(intent);
                     break;

@@ -12,8 +12,7 @@ import com.example.constructionapp1.Presentation.WorkActivities.EquipmentActivit
 import com.example.constructionapp1.R;
 import com.example.constructionapp1.Presentation.WorkActivities.RequirementActivity;
 import com.example.constructionapp1.Presentation.WorkActivities.ToDoListActivity;
-import com.example.constructionapp1.Domain.FirstPageAfterLogin.Card;
-import com.example.constructionapp1.sitereport;
+import com.example.constructionapp1.Presentation.sitereportActivity;
 
 import java.util.ArrayList;
 
@@ -66,7 +65,7 @@ public class SupervisorActivity extends AppCompatActivity {
 
                 case "Report":
                 {
-                            Intent intent = new Intent(SupervisorActivity.this, sitereport.class);
+                            Intent intent = new Intent(SupervisorActivity.this, sitereportActivity.class);
                             startActivity(intent);
                     break;
                 }

@@ -22,7 +22,7 @@ import com.example.constructionapp1.Presentation.Login.LoginActivity;
 import com.example.constructionapp1.Presentation.SecondPageOfAdmin.siteadapter;
 import com.example.constructionapp1.Presentation.eachSiteInEngineerActivity;
 import com.example.constructionapp1.R;
-import com.example.constructionapp1.Domain.WorkActivities.equipmentInfo;
+import com.example.constructionapp1.Data.WorkActivities.equipmentInfo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

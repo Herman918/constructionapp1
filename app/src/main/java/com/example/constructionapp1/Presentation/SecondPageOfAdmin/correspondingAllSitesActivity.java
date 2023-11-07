@@ -11,12 +11,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.constructionapp1.Presentation.WorkActivities.EquipmentActivity;
 import com.example.constructionapp1.Presentation.WorkActivities.LaborActivity;
-import com.example.constructionapp1.Pipeline_settings.Table;
+import com.example.constructionapp1.Presentation.WorkActivities.Pipelines.TableActivity;
 import com.example.constructionapp1.R;
 import com.example.constructionapp1.Presentation.WorkActivities.RequirementActivity;
 import com.example.constructionapp1.Presentation.WorkActivities.ToDoListActivity;
-import com.example.constructionapp1.Domain.SecondPageOfAdmin.SiteObject;
-import com.example.constructionapp1.workInfo;
+import com.example.constructionapp1.Data.SecondPageOfAdmin.SiteObject;
+import com.example.constructionapp1.Data.workInfo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -130,7 +130,7 @@ public class correspondingAllSitesActivity extends AppCompatActivity implements
                                         }
                                     }
                                     if (!wk.isEmpty()) {
-                                        Intent intent = new Intent(correspondingAllSitesActivity.this, Table.class);
+                                        Intent intent = new Intent(correspondingAllSitesActivity.this, TableActivity.class);
                                         intent.putExtra("Tbl", wk);
                                         startActivity(intent);
                                     } else {
