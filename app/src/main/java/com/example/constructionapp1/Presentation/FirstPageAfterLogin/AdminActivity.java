@@ -47,10 +47,10 @@ public class AdminActivity extends AppCompatActivity {
         setContentView(R.layout.activity_specificforadminnow);
 
         final ArrayList<Card> cardTile = new ArrayList<>();
-        cardTile.add(new Card("Pipeline", R.drawable.pipelinecopy, Color.parseColor("#fde0dc")));
-        cardTile.add(new Card("Watertank", R.drawable.watertankconstructioncopy, Color.parseColor("#a6baff")));
-        cardTile.add(new Card("Roadpavement", R.drawable.roadpavementcopy, Color.parseColor("#42bd41")));
-        cardTile.add(new Card("Buildingconstru", R.drawable.buildingconstructioncopy, Color.parseColor("#fdd835")));
+        cardTile.add(new Card("Магистрали", R.drawable.pipelinecopy, Color.parseColor("#fde0dc")));
+        cardTile.add(new Card("Резервуары", R.drawable.watertankconstructioncopy, Color.parseColor("#a6baff")));
+        cardTile.add(new Card("Дороги", R.drawable.roadpavementcopy, Color.parseColor("#42bd41")));
+        cardTile.add(new Card("Здания", R.drawable.buildingconstructioncopy, Color.parseColor("#fdd835")));
         firstpageadapter adapter = new firstpageadapter(this, cardTile);
         GridView gridView = findViewById(R.id.firstopening);
         gridView.setAdapter(adapter);
@@ -66,14 +66,14 @@ public class AdminActivity extends AppCompatActivity {
 
 
             switch (card.getCdtitle()) {
-                case "Pipeline": {
+                case "Магистрали": {
                     Intent intent = new Intent(AdminActivity.this, cityActivity.class);
                     intent.putExtra("category", "Pipeline");
                     startActivity(intent);
                     break;
 
                 }
-                case "Watertank": {
+                case "Резервуары": {
                     tableuser.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -101,7 +101,7 @@ public class AdminActivity extends AppCompatActivity {
                     break;
 
                 }
-                case "Roadpavement": {
+                case "Дороги": {
                     tableuser.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -129,7 +129,7 @@ public class AdminActivity extends AppCompatActivity {
                     break;
 
                 }
-                case "Buildingconstru": {
+                case "Здания": {
                     tableuser.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

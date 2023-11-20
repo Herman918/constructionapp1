@@ -16,7 +16,7 @@ import com.example.constructionapp1.Presentation.sitereportActivity;
 
 import java.util.ArrayList;
 
-public class SupervisorActivity extends AppCompatActivity {
+    public class SupervisorActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,11 +24,11 @@ public class SupervisorActivity extends AppCompatActivity {
         setContentView(R.layout.afterlogin_thislayout_specific_for_supervisor);
 
         ArrayList<Card> cardTile = new ArrayList<>();
-        cardTile.add(new Card("Labor", R.drawable.laborcopy, Color.parseColor("#fde0dc")));
-        cardTile.add(new Card("Equipment", R.drawable.equipmentcopy, Color.parseColor("#a6baff")));
-        cardTile.add(new Card("Tasks", R.drawable.taskcopy, Color.parseColor("#42bd41")));
-        cardTile.add(new Card("Requirement", R.drawable.requirementcopy, Color.parseColor("#fdd835")));
-        cardTile.add(new Card("Report", R.drawable.reportcardcopy, Color.parseColor("#90a4ae")));
+        cardTile.add(new Card("Команда", R.drawable.laborcopy, Color.parseColor("#fde0dc")));
+        cardTile.add(new Card("Техника", R.drawable.equipmentcopy, Color.parseColor("#a6baff")));
+        cardTile.add(new Card("Задачи", R.drawable.taskcopy, Color.parseColor("#42bd41")));
+        cardTile.add(new Card("Запрос в офис", R.drawable.requirementcopy, Color.parseColor("#fdd835")));
+        cardTile.add(new Card("Отчет", R.drawable.reportcardcopy, Color.parseColor("#90a4ae")));
         firstpageadapter adapter = new firstpageadapter(this, cardTile);
         GridView gridView = findViewById(R.id.firstopening);
         gridView.setAdapter(adapter);
@@ -37,33 +37,33 @@ public class SupervisorActivity extends AppCompatActivity {
 
             Card card = (Card) adapterView.getItemAtPosition(position);
             switch (card.getCdtitle()) {
-                case "LaborActivity": {
+                case "Команда": {
                             Intent intent = new Intent(SupervisorActivity.this, LaborActivity.class);
                             intent.putExtra("forlabor", "1");
                             startActivity(intent);
                     break;
                 }
-                case "EquipmentActivity":{
+                case "Техника":{
                             Intent intent = new Intent(SupervisorActivity.this, EquipmentActivity.class);
                             intent.putExtra("forequip", "2");
                             startActivity(intent);
                     break;
                 }
-                case "Tasks":{
+                case "Задачи":{
                             Intent intent = new Intent(SupervisorActivity.this, ToDoListActivity.class);
                             intent.putExtra("todolist", "3");
                             startActivity(intent);
                             break;
                 }
 
-                case "RequirementActivity":{
+                case "Запрос в офис":{
                             Intent intent = new Intent(SupervisorActivity.this, RequirementActivity.class);
                             intent.putExtra("anyrequirement", "4");
                             startActivity(intent);
                     break;
                 }
 
-                case "Report":
+                case "Отчет":
                 {
                             Intent intent = new Intent(SupervisorActivity.this, sitereportActivity.class);
                             startActivity(intent);

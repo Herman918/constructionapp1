@@ -1,50 +1,50 @@
 <resources>
     <string name="app_name">Construction app</string>
 
-    <string name="username_hint"><font size="39">username</font></string>
-    <string name="password_hint"><font size="39">password</font></string>
-    <string name="login"><font size="16">Log In</font></string>
+    <string name="username_hint"><font size="39">Имя   </font></string>
+    <string name="password_hint"><font size="39">Пароль</font></string>
+    <string name="login"><font size="16">Вход</font></string>
 
     <string name="title_activity_onetimeopening">onetimeopening</string>
-    <string name="admin">Admin</string>
-    <string name="engineer">Engineer</string>
+    <string name="admin">Администратор</string>
+    <string name="engineer">Инженер</string>
 
     <string name="navigation_drawer_open">Drawer Open</string>
     <string name="navigation_drawer_close">Drawer Closed</string>
-    <string name="addsite">Add Site</string>
-    <string name="addMember">Add Member</string>
-    <string name="Engineers">Engineers</string>
-    <string name="locate">Locate</string>
-    <string name="constructiontype">ConstructionType</string>
-    <string name="material">Material</string>
-    <string name="type">Type</string>
-    <string name="diameter">Diameter</string>
-    <string name="nameofsite">Site Name</string>
-    <string name="areaofsite">Site Location</string>
-    <string name="nameofEngineer">Engineer Name</string>
-    <string name="createnewsite">Create</string>
-    <string name="setEngineerPassword"><font size="16">EngineerPassword</font></string>
-    <string name="todaysmanpower">Manpower used today</string>
-    <string name="sendtoAdmin">Send To Admin</string>
-    <string name="numofPeople"><font size="15">People</font></string>
-    <string name="hint_to_set_engineer_for_this_site"><font size="15">engineer for this site</font></string>
-    <string name="hint_to_set_engineer_password"><font size="15">set password for engineer</font></string>
-    <string name="hint_to_add_name_of_site"><font size="15">Enter Name Of Site</font></string>
-    <string name="hint_to_add_area_of_site"><font size="15">Enter Area Of Site</font></string>
-    <string name="sitereport"><font size="18">Site Report</font></string>
-    <string name="reporttitle"><font size="13">Report Title</font></string>
+    <string name="addsite">Добавить площадку</string>
+    <string name="addMember">Добавить участника</string>
+    <string name="Engineers">Инженеры</string>
+    <string name="locate">Расположение</string>
+    <string name="constructiontype">Строительный Объект</string>
+    <string name="material">Материалы</string>
+    <string name="type">Тип</string>
+    <string name="diameter">Диаметр</string>
+    <string name="nameofsite">Название объекта</string>
+    <string name="areaofsite">Название города</string>
+    <string name="nameofEngineer">Имя инженера</string>
+    <string name="createnewsite">Создать</string>
+    <string name="setEngineerPassword"><font size="16">Пароль инженера</font></string>
+    <string name="todaysmanpower">Команда строителей сегодня</string>
+    <string name="sendtoAdmin">Отправить администратору</string>
+    <string name="numofPeople"><font size="15">Люди</font></string>
+    <string name="hint_to_set_engineer_for_this_site"><font size="15">Инженер для объекта</font></string>
+    <string name="hint_to_set_engineer_password"><font size="15">Установить пароль для инженера</font></string>
+    <string name="hint_to_add_name_of_site"><font size="15">Введите название объекта</font></string>
+    <string name="hint_to_add_area_of_site"><font size="15">Введите название города</font></string>
+    <string name="sitereport"><font size="18">Отчет о стройплощадке</font></string>
+    <string name="reporttitle"><font size="13">Заголовок отчета</font></string>
     <string name="hint_for_report_title"><font size="15">Enter Report Title</font></string>
-    <string name="reportdiscription"><font size="13">Report Description</font></string>
-    <string name="hint_for_report_discription"><font size="15">Enter Description</font></string>
+    <string name="reportdiscription"><font size="13">Описание отчета</font></string>
+    <string name="hint_for_report_discription"><font size="15">Введите описание отчета</font></string>
     <string name="add_another_vehicle"><font size="13">Add vehicle</font></string>
     <string name="start_the_chat"><font size="13">Let\'s start the chat</font></string>
-    <string name="vehicle"><font size="13">Vehicle</font></string>
-    <string name="hint_to_add_vehicle_used"><font size="15">Enter vehicle used with NumberPlate</font></string>
-    <string name="initialreading"><font size="13">Initial Reading</font></string>
-    <string name="hint_to_add_initial_reading"><font size="15">Enter initial reading</font></string>
-    <string name="finalreading"><font size="13">Final Reading</font></string>
-    <string name="hint_to_add_final_reading"><font size="15">Enter final reading</font></string>
-    <string name="today"><font size="15">Today</font></string>
+    <string name="vehicle"><font size="13">Транспортное средство</font></string>
+    <string name="hint_to_add_vehicle_used"><font size="15">Государственный номер транспортного средства</font></string>
+    <string name="initialreading"><font size="13">Начальный пробег</font></string>
+    <string name="hint_to_add_initial_reading"><font size="15">Введите начальный пробег</font></string>
+    <string name="finalreading"><font size="13">Конечный пробег</font></string>
+    <string name="hint_to_add_final_reading"><font size="15">Введите конечный пробег</font></string>
+    <string name="today"><font size="15">Сегодня</font></string>
     <string name="uptodate"><font size="15">UpToDate</font></string>
 
 

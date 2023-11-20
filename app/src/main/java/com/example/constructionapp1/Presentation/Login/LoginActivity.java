@@ -78,7 +78,7 @@ import com.google.firebase.database.ValueEventListener;
                                     startActivity(intent);
                                     finish();
                                 } else {
-                                    Toast.makeText(LoginActivity.this, "Wrong password", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(LoginActivity.this, "Неправильный пароль", Toast.LENGTH_SHORT).show();
                                 }
                             } else {
                                 Toast.makeText(LoginActivity.this, "You are not registered Admin", Toast.LENGTH_SHORT).show();

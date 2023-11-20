@@ -36,7 +36,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
-            android:text="@string/areaofsite"
+            android:text="Место на объекте"
             android:textColorHighlight="@color/pink_200"
             android:textStyle="bold"
             android:layout_gravity="start"
@@ -50,7 +50,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="2dp"
-            android:hint="@string/hint_to_add_area_of_site"
+            android:hint="Введите название (улицу) на объекте"
             android:inputType="text"
             android:maxLines="1"
             android:textSize="18sp" />

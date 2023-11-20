@@ -73,6 +73,7 @@ import com.itextpdf.text.Image;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
@@ -419,6 +420,7 @@ public class sitereportActivity extends AppCompatActivity implements AdapterView
         doc.setPageSize(PageSize.A3);
         doc.setMargins(2, 0, 2, 2);
 
+
         //  String pdfName = "/";
       //  pdfName = pdfName + engineerassignedCityActivity.selectedcity + "_" + eachSiteInEngineerActivity.selectedsite + "_" + sitelocation.getText().toString() + dateLong;
        // pdfName = pdfName + ".pdf";
@@ -434,6 +436,7 @@ public class sitereportActivity extends AppCompatActivity implements AdapterView
         String outpath = directoryPath + File.separator + pdfName;
         Log.d("PDF_PATH2", outpath);
 
+
         try {
             fl = new File(outpath);
             PdfWriter writer = PdfWriter.getInstance(doc, new FileOutputStream(outpath));
@@ -447,8 +450,9 @@ public class sitereportActivity extends AppCompatActivity implements AdapterView
             Font font = new Font(Font.FontFamily.TIMES_ROMAN, 24, Font.UNDERLINE, BaseColor.RED);
             Font fontdate = new Font(Font.FontFamily.TIMES_ROMAN, 20, Font.BOLDITALIC, BaseColor.GREEN);
 
+            Font rus = new Font(BaseFont.createFont("assets/Roboto-Medium.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED), 24, Font.UNDERLINE, BaseColor.RED);
 
-            Paragraph preface = new Paragraph("Site Report", font);
+            Paragraph preface = new Paragraph("Отчет об объекте", rus);
             preface.setAlignment(Element.ALIGN_CENTER);
             doc.add(preface);
 
@@ -456,9 +460,11 @@ public class sitereportActivity extends AppCompatActivity implements AdapterView
             date.setAlignment(Element.ALIGN_LEFT);
             doc.add(date);
 
-            doc.add(addtoreport("Name Of Engineer", LoginActivity.usname));
-            doc.add(addtoreport("Site Location", engineerassignedCityActivity.selectedcity + "->" + eachSiteInEngineerActivity.selectedsite + "->" + sitelocation.getText().toString()));
-            doc.add(addtoreport("Report Description", rptdescription.getText().toString()));
+
+
+            doc.add(addtoreport("Имя инженера", LoginActivity.usname));
+            doc.add(addtoreport("Местоположение объекта", engineerassignedCityActivity.selectedcity + "->" + eachSiteInEngineerActivity.selectedsite + "->" + sitelocation.getText().toString()));
+            doc.add(addtoreport("Описание отчета", rptdescription.getText().toString()));
 
             Font fontcontent = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.NORMAL);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -634,9 +640,9 @@ public class sitereportActivity extends AppCompatActivity implements AdapterView
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            doc.add(addtoreport("LaborActivity Count", savedLaborCountFromFirebase));
-            doc.add(addtoreport("Task From Admin", savedTaskFromFirebase));
-            doc.add(addtoreport("RequirementActivity From Engineer", savedRequirementFromFirebase));
+            doc.add(addtoreport("Команда строителей", savedLaborCountFromFirebase));
+            doc.add(addtoreport("Задачи из офиса", savedTaskFromFirebase));
+            doc.add(addtoreport("Запросы инженера", savedRequirementFromFirebase));
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -727,6 +733,8 @@ public class sitereportActivity extends AppCompatActivity implements AdapterView
             Animation shake = AnimationUtils.loadAnimation(sitereportActivity.this, R.anim.shake);
             fab.startAnimation(shake);
 
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         } finally {
             doc.close();
             imageFile.delete();
@@ -805,7 +813,7 @@ public class sitereportActivity extends AppCompatActivity implements AdapterView
         //  Auto-generated method stub
     }
 
-    private PdfPTable addtoreport(String s1, String s2) {
+    private PdfPTable addtoreport(String s1, String s2) throws DocumentException, IOException {
         PdfPTable table = new PdfPTable(2); // 2 columns.
         float[] columnWidths = {1f, 2f};
         try {
@@ -814,8 +822,13 @@ public class sitereportActivity extends AppCompatActivity implements AdapterView
             Toast.makeText(this, "column document exception", Toast.LENGTH_SHORT).show();
         }
 
-        Font fontleft = new Font(Font.FontFamily.TIMES_ROMAN, 16, Font.NORMAL);
-        Font fontright = new Font(Font.FontFamily.TIMES_ROMAN, 19, Font.BOLD);
+
+        Font rus = new Font(BaseFont.createFont("assets/Roboto-Medium.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED));
+
+        Font fontleft = new Font(rus.getBaseFont(), 16, Font.NORMAL);
+        Font fontright = new Font(rus.getBaseFont(), 16, Font.BOLD);
+
+
 
         PdfPCell cell1 = new PdfPCell(new Paragraph("\n" + s1, fontleft));
         cell1.setVerticalAlignment(Element.ALIGN_CENTER);

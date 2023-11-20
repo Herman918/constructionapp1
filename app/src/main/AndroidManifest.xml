@@ -17,12 +17,13 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:targetApi="31" >
+        tools:targetApi="31">
 
 
 
         <activity android:name=".Presentation.Login.LoginActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -30,79 +31,99 @@
         </activity>
 
         <activity
-            android:name=".Presentation.FirstPageAfterLogin.AdminActivity">
+            android:name=".Presentation.FirstPageAfterLogin.AdminActivity"
+            android:screenOrientation="portrait">
         </activity>
 
         <activity
             android:name=".Presentation.FirstPageAfterLogin.SupervisorActivity"
-            android:exported="true"/>
+            android:exported="true"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".Presentation.SecondPageOfAdmin.correspondingAllSitesActivity"
             android:launchMode="singleTask"
-            android:parentActivityName=".Presentation.FirstPageAfterLogin.AdminActivity">
+            android:parentActivityName=".Presentation.FirstPageAfterLogin.AdminActivity"
+            android:screenOrientation="portrait">
         </activity>
 
         <activity
             android:name=".Presentation.SecondPageOfAdmin.Menu.AddSiteActivity"
-            android:parentActivityName=".Presentation.FirstPageAfterLogin.AdminActivity"/>
+            android:parentActivityName=".Presentation.FirstPageAfterLogin.AdminActivity"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".Presentation.SecondPageOfAdmin.Menu.AddMemberActivity"
             android:label="@string/addMember"
-            android:parentActivityName=".Presentation.FirstPageAfterLogin.AdminActivity" />
+            android:parentActivityName=".Presentation.FirstPageAfterLogin.AdminActivity"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".Presentation.WorkActivities.PDFViewerActivity"
-            android:parentActivityName=".Presentation.sitereportActivity" />
+            android:parentActivityName=".Presentation.sitereportActivity"
+            android:screenOrientation="portrait"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.constructionapp1.fileprovider"
             android:exported="false"
-            android:grantUriPermissions="true">
+            android:grantUriPermissions="true"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_path" />
+                android:resource="@xml/file_path"
+                android:screenOrientation="portrait"/>
         </provider>
 
         <activity
             android:name=".Presentation.SecondPageOfAdmin.Menu.EngineerDeletePageActivity"
             android:label="@string/engineer"
             android:launchMode="singleTask"
-            android:parentActivityName=".Presentation.FirstPageAfterLogin.AdminActivity" />
+            android:parentActivityName=".Presentation.FirstPageAfterLogin.AdminActivity"
+            android:screenOrientation="portrait"/>
 
         <activity android:name=".Presentation.FirstPageAfterLogin.engineerassignedCityActivity"
-            android:exported="true"/>
-        <activity android:name=".Presentation.eachSiteInEngineerActivity" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Presentation.eachSiteInEngineerActivity"
+            android:screenOrientation="portrait"/>
 
-        <activity android:name=".Presentation.WorkActivities.LaborActivity" />
+        <activity android:name=".Presentation.WorkActivities.LaborActivity"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".Presentation.sitereportActivity"
-            android:configChanges="keyboard|orientation|screenSize" />
+            android:configChanges="keyboard|orientation|screenSize"
+            android:screenOrientation="portrait"/>
 
         <activity android:name=".Presentation.WorkActivities.EquipmentActivity"
-            android:label="Equipment Info"/>
+            android:label="Equipment Info"
+            android:screenOrientation="portrait"/>
 
-        <activity android:name=".Presentation.WorkActivities.ToDoListActivity" />
+        <activity android:name=".Presentation.WorkActivities.ToDoListActivity"
+            android:screenOrientation="portrait"/>
 
-        <activity android:name=".Presentation.WorkActivities.RequirementActivity" />
+        <activity android:name=".Presentation.WorkActivities.RequirementActivity"
+            android:screenOrientation="portrait"/>
 
 
 
 
         <activity
             android:name=".Presentation.WorkActivities.Pipelines.cityActivity"
-            android:launchMode="singleTask" />
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Presentation.WorkActivities.Pipelines.namewithprogressActivity"
-            android:launchMode="singleTask" />
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Presentation.WorkActivities.Pipelines.TableActivity"
-            android:label="Today" />
+            android:label="Today"
+            android:screenOrientation="portrait"/>
         <activity android:name=".Presentation.WorkActivities.Pipelines.Uptodate_TableActivity"
-            android:label="UpToDate"/>
+            android:label="UpToDate"
+            android:screenOrientation="portrait"/>
 
     </application>
 
