@@ -23,7 +23,8 @@
 
         <activity android:name=".Presentation.Login.LoginActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -38,7 +39,8 @@
         <activity
             android:name=".Presentation.FirstPageAfterLogin.SupervisorActivity"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
         <activity
             android:name=".Presentation.SecondPageOfAdmin.correspondingAllSitesActivity"
@@ -85,7 +87,7 @@
         <activity android:name=".Presentation.FirstPageAfterLogin.engineerassignedCityActivity"
             android:exported="true"
             android:screenOrientation="portrait"/>
-        <activity android:name=".Presentation.eachSiteInEngineerActivity"
+        <activity android:name=".Presentation.FirstPageAfterLogin.eachSiteInEngineerActivity"
             android:screenOrientation="portrait"/>
 
         <activity android:name=".Presentation.WorkActivities.LaborActivity"
@@ -94,6 +96,7 @@
         <activity
             android:name=".Presentation.sitereportActivity"
             android:configChanges="keyboard|orientation|screenSize"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:screenOrientation="portrait"/>
 
         <activity android:name=".Presentation.WorkActivities.EquipmentActivity"

@@ -9,6 +9,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -41,6 +42,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
 import com.example.constructionapp1.Data.WorkActivities.equipmentInfo;
+import com.example.constructionapp1.Presentation.FirstPageAfterLogin.eachSiteInEngineerActivity;
 import com.example.constructionapp1.Presentation.FirstPageAfterLogin.engineerassignedCityActivity;
 import com.example.constructionapp1.Presentation.Login.LoginActivity;
 import com.example.constructionapp1.Presentation.WorkActivities.EquipmentActivity;
@@ -172,7 +174,6 @@ public class sitereportActivity extends AppCompatActivity implements AdapterView
         spin.setOnItemSelectedListener(this);
 
 
-
         // В методе onCreate или другом подходящем месте
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
@@ -202,7 +203,7 @@ public class sitereportActivity extends AppCompatActivity implements AdapterView
                 String RequirementFromFirebase = dataSnapshot.child("People").child(LoginActivity.usname)
                         .child(engineerassignedCityActivity.selectedcity).child(eachSiteInEngineerActivity.selectedsite)
                         .child(dateLong).child("Today's RequirementActivity").getValue(String.class);
-                if (RequirementFromFirebase == null ) {
+                if (RequirementFromFirebase == null) {
                     RequirementFromFirebase = "";
                 }
 
@@ -216,8 +217,6 @@ public class sitereportActivity extends AppCompatActivity implements AdapterView
         };
 
         tableuser.addListenerForSingleValueEvent(valueEventListener);
-
-
 
 
         //Getting the instance of Spinner for Material and applying OnItemSelectedListener on it
@@ -288,6 +287,15 @@ public class sitereportActivity extends AppCompatActivity implements AdapterView
 
         imageView = (ImageView) findViewById(R.id.sitereportimage);
         rptdescription = findViewById(R.id.ent_rpt_description);
+
+        Font RUSrptdescription;
+        try {
+            RUSrptdescription = new Font(BaseFont.createFont("assets/Roboto-Medium.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED), 16, Font.NORMAL, BaseColor.BLACK);
+        } catch (DocumentException | IOException e) {
+            throw new RuntimeException(e);
+        }
+        rptdescription.setTypeface(Typeface.create(String.valueOf(RUSrptdescription.getBaseFont()), Typeface.NORMAL));
+
         sitelocation = findViewById(R.id.ent_rpt_sitelocation);
         tl = (TableLayout) findViewById(R.id.tl);
 
@@ -311,8 +319,7 @@ public class sitereportActivity extends AppCompatActivity implements AdapterView
                         @Override
                         public void onBoomButtonClick(int index) {
                             switch (index) {
-                                case 0:
-                                {
+                                case 0: {
                                     //Take picture
                                     captureImage();
                                     break;
@@ -343,7 +350,7 @@ public class sitereportActivity extends AppCompatActivity implements AdapterView
                                 case 2: {
                                     openPdfWithExternalApp(fl);
                                     break;
-                                    }
+                                }
 
                                 case 3:
                                     //Send to admin
@@ -369,12 +376,12 @@ public class sitereportActivity extends AppCompatActivity implements AdapterView
         imageresourceid.add(R.drawable.show_report);
         //  imageresourceid.add(R.drawable.ic_picture_as_pdf_light_green_a700_24dp);
         imageresourceid.add(R.drawable.ic_send_purple_a200_24dp);
-        stringresourceid.add("Take today's progress photo");
-        stringresourceid.add("Create a report");
-        stringresourceid.add("Show report");
+        stringresourceid.add("Сделайте фотографию текущего прогресса сегодня");
+        stringresourceid.add("Создать отчет");
+        stringresourceid.add("Показать отчет");
         //I will add functionality of viewing report in updates like 1.1
         //   stringresourceid.add("View report");
-        stringresourceid.add("Send to Admin");
+        stringresourceid.add("Отправить отчет в офис");
     }
 
 
