@@ -21,7 +21,7 @@ import com.google.firebase.database.annotations.Nullable;
 
 import java.util.ArrayList;
 
-public class eachSiteInEngineerActivity extends AppCompatActivity {
+    public class eachSiteInEngineerActivity extends AppCompatActivity {
     private ArrayList<String> assignedsite = new ArrayList<>();
     public static String selectedsite;
     Engineer_delete_Adapter adapterforassignedsite;

@@ -30,7 +30,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class LaborActivity extends AppCompatActivity {
+    public class LaborActivity extends AppCompatActivity {
 
     Date currentDate = new Date();
     //    Date tomorrow = new Date(currentDate.getTime() + (1000 * 60 * 60 * 24));

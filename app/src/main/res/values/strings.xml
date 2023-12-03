@@ -36,7 +36,7 @@
     <string name="hint_for_report_title"><font size="15">Enter Report Title</font></string>
     <string name="reportdiscription"><font size="13">Описание отчета</font></string>
     <string name="hint_for_report_discription"><font size="15">Введите описание отчета</font></string>
-    <string name="add_another_vehicle"><font size="13">Add vehicle</font></string>
+    <string name="add_another_vehicle"><font size="13">+1 Транспорт</font></string>
     <string name="start_the_chat"><font size="13">Let\'s start the chat</font></string>
     <string name="vehicle"><font size="13">Транспортное средство</font></string>
     <string name="hint_to_add_vehicle_used"><font size="15">Государственный номер транспортного средства</font></string>
